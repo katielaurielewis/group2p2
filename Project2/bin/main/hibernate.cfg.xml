@@ -9,9 +9,9 @@
  	
  		<!-- JDBC -->
  		<!-- Make sure to change these when we get running DB -->
-		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">password</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=hibernate</property>
+		<property name="hibernate.connection.username">${hibernate_username}</property>
+		<property name="hibernate.connection.password">${hibernate_password}</property>
+		<property name="hibernate.connection.url">${hibernate_URL}</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		
 		<!-- Hibernate Properties -->
