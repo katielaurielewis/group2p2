@@ -7,57 +7,51 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-//This model class is essentially just another table to list off the different status types
+//This is based off the Themes and Genres of the API, it'll hopefully help for our Anime model
 
 @Entity
-@Table(name = "watch_statuses")
-public class WatchStatus {
+@Table(name = "genres")
+public class Genre {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "status_id")
+	@Column(name = "genre_id")
 	private int id;
 	
-	@Column(name = "status_name")
-	private String status;
+	@Column(name = "genre_name")
+	private String name;
 
+	//boilerplate code------------------------------------------
 	
-	//boilerplate code-----------------------------------------------
-	public WatchStatus() {
+	public Genre() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public WatchStatus(int id, String status) {
+	public Genre(int id, String name) {
 		super();
 		this.id = id;
-		this.status = status;
+		this.name = name;
 	}
 
-
-	public WatchStatus(String status) {
+	public Genre(String name) {
 		super();
-		this.status = status;
+		this.name = name;
 	}
-
 
 	@Override
 	public String toString() {
-		return "WatchStatus [id=" + id + ", status=" + status + "]";
+		return "Genre [id=" + id + ", name=" + name + "]";
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -67,37 +61,32 @@ public class WatchStatus {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		WatchStatus other = (WatchStatus) obj;
+		Genre other = (Genre) obj;
 		if (id != other.id)
 			return false;
-		if (status == null) {
-			if (other.status != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!status.equals(other.status))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-	public String getStatus() {
-		return status;
+	public String getName() {
+		return name;
 	}
 
-
-	public void setStatus(String status) {
-		this.status = status;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
 	
 	
 }

@@ -31,6 +31,11 @@
 		<!-- We need to map our Classes in order for them to be recognized by Hibernate -->
 		<mapping class="com.revature.models.Anime"/>
 		<mapping class="com.revature.models.User"/>
+		<mapping class="com.revature.models.UserAnime"/>
+		<mapping class="com.revature.models.Studio"/>
+		<mapping class="com.revature.models.WatchStatus"/>
+		<mapping class="com.revature.models.Genre"/>
+		<mapping class="com.revature.models.Review"/>
  	
  	</session-factory>
  </hibernate-configuration>
