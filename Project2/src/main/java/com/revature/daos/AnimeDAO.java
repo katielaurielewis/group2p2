@@ -14,15 +14,13 @@ import com.revature.models.WatchStatus;
 import com.revature.utils.HibernateUtil;
 
 public class AnimeDAO implements AnimeDaoInterface {
+	
 	@Override
 	public void addAnime(Anime anime) {
 		
 		Session ses = HibernateUtil.getSession();
 		ses.save(anime);
 		HibernateUtil.closeSession();
-		
-		
-
 
 	}
 	
@@ -31,7 +29,7 @@ public class AnimeDAO implements AnimeDaoInterface {
 		
 		Session ses = HibernateUtil.getSession();
 		
-		List <Anime> animes = ses.createQuery("From Anime").list();
+		List<Anime> animes = ses.createQuery("From Anime").list();
 		
 		HibernateUtil.closeSession();
 		return animes;
@@ -49,10 +47,9 @@ public class AnimeDAO implements AnimeDaoInterface {
 		
        Anime animeById = ses.get(Anime.class, id);
 		
-		HibernateUtil.closeSession();
-		return animeById;
-		
-		
+       HibernateUtil.closeSession();
+       
+       return animeById;
 		
 	}
 	
@@ -96,30 +93,22 @@ public class AnimeDAO implements AnimeDaoInterface {
 	public Anime getRandomAnime(int id) {
 		Session ses = HibernateUtil.getSession();
 		
-		List <Anime> animes = ses.createQuery("From Anime").list();
+		List<Anime> animes = ses.createQuery("From Anime").list();
 		
 		//The size of all animes
 		int length = animes.size();
 		
-		 Random rand = new Random();
+		Random rand = new Random();
 
 		//random id
-		 id = rand.nextInt(length) + 1;
+		id = rand.nextInt(length) + 1;
 		
-		 //random anime
-       Anime randomAnime = ses.get(Anime.class, id);
+		//random anime
+		Anime randomAnime = ses.get(Anime.class, id);
 		
 		HibernateUtil.closeSession();
 		return randomAnime;
 	
-		
-	}
-
-	@Override
-	public void addUser(User user) {
-		Session ses = HibernateUtil.getSession();
-		ses.save(user);
-		HibernateUtil.closeSession();
 		
 	}
 

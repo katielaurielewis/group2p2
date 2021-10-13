@@ -27,6 +27,14 @@ public class UserDAO implements UserDaoInterface {
 			HibernateUtil.closeSession();
 			return userByPassword;
 	}
+	
+	@Override
+	public void addUser(User user) {
+		Session ses = HibernateUtil.getSession();
+		ses.save(user);
+		HibernateUtil.closeSession();
+		
+	}
 
 
 }
