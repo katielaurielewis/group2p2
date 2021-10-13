@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 
 import com.revature.models.Anime;
 import com.revature.models.User;
+import com.revature.models.UserAnime;
 import com.revature.models.WatchStatus;
 import com.revature.utils.HibernateUtil;
 
@@ -53,40 +54,32 @@ public class AnimeDAO implements AnimeDaoInterface {
 		
 	}
 	
+
+	@Override
+	public void updateAnimeWatchedStatus(UserAnime uAnime) { 
+		//This should update the WatchStatus of an anime, maybe more reasonable to put in a seperate DAO class
+		
+		Session ses = HibernateUtil.getSession();
+		Transaction tran = ses.beginTransaction();
+
+		String HQL = "UPDATE UserAnime SET watchStatus = " + uAnime.getWatchStatus().getId() + " WHERE id = "
+				+ uAnime.getId();
+
+		// Instantiate a Query object with createQuery()
+		Query q = ses.createQuery(HQL);
+
+		// Send the update to the DB just like JDBC
+		q.executeUpdate();
+
+		// close transaction and session to prevent memory leak
+		tran.commit();
+
+		HibernateUtil.closeSession();
+			
+			
+			
 	
-	
-	//THE FOLLOWING METHOD SHOULD BE MODIFIED!!!!
-	
-	
-	
-	
-	
-	
-//	@Override
-//	public void updateAnimeWatchedStatus(Anime anime) { 
-//		
-//			Session ses = HibernateUtil.getSession();
-//			Transaction tran = ses.beginTransaction();
-//			
-//	        String HQL = "UPDATE Anime SET watched_status = '" + anime.getAnime_watch_status().getWatched_status_id() + 
-//	        		"' WHERE anime_id = " + anime.getId();
-//			
-//			//Instantiate a Query object with createQuery()
-//			Query q = ses.createQuery(HQL);
-//			
-//			//Send the update to the DB just like JDBC
-//			q.executeUpdate();
-//			
-//			
-//			//close transaction and session to prevent memory leak
-//			tran.commit();
-//			
-//			HibernateUtil.closeSession();
-//			
-//			
-//			
-//	
-//	}
+	}
 
 	
 	@Override
@@ -116,6 +109,7 @@ public class AnimeDAO implements AnimeDaoInterface {
 
 	@Override
 	public void addWatchedStatus(WatchStatus watchStatus) {
+		
 		Session ses = HibernateUtil.getSession();
 		ses.save(watchStatus);
 		HibernateUtil.closeSession();
