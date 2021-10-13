@@ -13,13 +13,9 @@ public interface AnimeDaoInterface {
 
 	Anime getAnimeById(int id);
 
-	//void updateAnimeWatchedStatus(Anime anime);
+	void updateAnimeWatchStatus(Anime anime);
 
 	Anime getRandomAnime(int id) ;
 	
-	void addUser(User user);
-	
-	
-	
-	void addWatchedStatus(WatchStatus watchedStatus);
+	void addWatchStatus(WatchStatus watchedStatus);
 }

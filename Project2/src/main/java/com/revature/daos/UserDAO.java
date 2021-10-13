@@ -6,7 +6,14 @@ import com.revature.utils.HibernateUtil;
 
 public class UserDAO implements UserDaoInterface {
 	
-	User u = new User();
+
+	@Override
+	public void addUser(User user) {
+		Session ses = HibernateUtil.getSession();
+		ses.save(user);
+		HibernateUtil.closeSession();
+		
+	}
 
 	@Override
 	public User getUserByUsername(String username) {
@@ -27,6 +34,7 @@ public class UserDAO implements UserDaoInterface {
 			HibernateUtil.closeSession();
 			return userByPassword;
 	}
+	
 
 
 }

@@ -20,9 +20,6 @@ public class AnimeDAO implements AnimeDaoInterface {
 		Session ses = HibernateUtil.getSession();
 		ses.save(anime);
 		HibernateUtil.closeSession();
-		
-		
-
 
 	}
 	
@@ -35,8 +32,6 @@ public class AnimeDAO implements AnimeDaoInterface {
 		
 		HibernateUtil.closeSession();
 		return animes;
-		
-
 	}
 
 	
@@ -65,31 +60,28 @@ public class AnimeDAO implements AnimeDaoInterface {
 	
 	
 	
-//	@Override
-//	public void updateAnimeWatchedStatus(Anime anime) { 
-//		
-//			Session ses = HibernateUtil.getSession();
-//			Transaction tran = ses.beginTransaction();
-//			
-//	        String HQL = "UPDATE Anime SET watched_status = '" + anime.getAnime_watch_status().getWatched_status_id() + 
-//	        		"' WHERE anime_id = " + anime.getId();
-//			
-//			//Instantiate a Query object with createQuery()
-//			Query q = ses.createQuery(HQL);
-//			
-//			//Send the update to the DB just like JDBC
-//			q.executeUpdate();
-//			
-//			
-//			//close transaction and session to prevent memory leak
-//			tran.commit();
-//			
-//			HibernateUtil.closeSession();
-//			
-//			
-//			
-//	
-//	}
+	@Override
+	public void updateAnimeWatchStatus(Anime anime) { 
+		
+			Session ses = HibernateUtil.getSession();
+			Transaction tran = ses.beginTransaction();
+			
+	        String HQL = "UPDATE Anime SET watched_status = '" /*+ anime.getAnime_watch_status().getWatched_status_id() */
+	        		+ "' WHERE anime_id = " + anime.getId();
+			
+			Query q = ses.createQuery(HQL);
+			
+			
+			q.executeUpdate();
+			
+			tran.commit();
+			
+			HibernateUtil.closeSession();
+			
+			
+			
+	
+	}
 
 	
 	@Override
@@ -115,18 +107,13 @@ public class AnimeDAO implements AnimeDaoInterface {
 		
 	}
 
-	@Override
-	public void addUser(User user) {
-		Session ses = HibernateUtil.getSession();
-		ses.save(user);
-		HibernateUtil.closeSession();
-		
-	}
+
+	
 
 	
 
 	@Override
-	public void addWatchedStatus(WatchStatus watchStatus) {
+	public void addWatchStatus(WatchStatus watchStatus) {
 		Session ses = HibernateUtil.getSession();
 		ses.save(watchStatus);
 		HibernateUtil.closeSession();
