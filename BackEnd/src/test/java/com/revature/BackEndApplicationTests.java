@@ -33,21 +33,61 @@ class BackEndApplicationTests {
 	public static LoginService ls;
 	
 	//variables and objects to use within tests
-	public User u = new User();
-	public Anime a = new Anime();
-	public Genre g = new Genre();
-	public UserAnime uAnime = new UserAnime();
-	public Studio s = new Studio();
-	public Review r = new Review();
-	public WatchStatus ws = new WatchStatus();
+	public static User u = new User();
+	public static Anime a = new Anime();
+	public static Genre g = new Genre();
+	public static UserAnime uAnime = new UserAnime();
+	public static Studio s = new Studio();
+	public static Review r = new Review();
+	public static WatchStatus ws = new WatchStatus();
 	public boolean result;
-	int id;
+	public int id;
+	public String uname;
+	public String pass;
 	
 	@BeforeAll
 	public static void createServices() {
 		as = new AnimeService();
 		us = new UserService();
 		ls = new LoginService();
+		
+		//also want to set the fields here, so we don't run into problems about which test goes first
+		//set user fields
+		u.setUsername("testuser");
+		u.setPassword("test");
+		u.setEmail("test@gmail.com");
+		u.setfName("Tess");
+		u.setlName("Tear");
+		
+		g.setId(200);
+		g.setName("Unit Testing"); //just some random test genre that hopefully won't conflict
+		
+		s.setId(400);
+		s.setName("Testimation");
+		
+		ws.setStatus("Just Testing");
+		
+		a.setId(30000);
+		a.setRating("T");
+		a.setScore(3.14);
+		List<Studio> slist = new ArrayList<>();
+		slist.add(s);
+		a.setStudios(slist);
+		List<Genre> glist = new ArrayList<>();
+		glist.add(g);
+		a.setThemes(glist);
+		a.setTitle("TokyoTest!!!");
+		a.setSynopsis("I just want to test this method");
+		
+		uAnime.setAnime(a);
+		uAnime.setUser(u);
+		uAnime.setWatchStatus(ws);
+		
+		r.setAnime(a);
+		r.setAuthor(u);
+		r.setStarRating(4.1);
+		r.setTextReview("Was pretty good");
+		
 	}
 	
 	@AfterAll
@@ -62,10 +102,10 @@ class BackEndApplicationTests {
 	@Test
 	public void testLogin() {
 		
-		u.setUsername("validusername"); //make sure to edit this to an actual DB username
-		u.setPassword("validpassword");
+		uname ="validusername"; //make sure to edit this to an actual DB username
+		pass = "validpassword";
 		
-		result = ls.checkCredentials(u.getUsername(), u.getPassword());
+		result = ls.checkCredentials(uname, pass);
 		
 		assertTrue(result);
 		//test passes if credentials match a user in the DB
@@ -75,10 +115,10 @@ class BackEndApplicationTests {
 	@Test
 	public void testFailedLogin() {
 		
-		u.setUsername("gsbauigbiusb"); 
-		u.setPassword("fhasblias");
+		uname = "gsbauigbiusb"; 
+		pass = "fhasblias";
 		
-		result = ls.checkCredentials(u.getUsername(), u.getPassword());
+		result = ls.checkCredentials(uname, pass);
 		
 		assertFalse(result);
 		//test passes if credentials do not match a user in the DB
@@ -133,12 +173,6 @@ class BackEndApplicationTests {
 	
 	@Test
 	public void testAddUser() {
-		//set user fields
-		u.setUsername("testuser");
-		u.setPassword("test");
-		u.setEmail("test@gmail.com");
-		u.setfName("Tess");
-		u.setlName("Tear");
 		
 		result = us.addUser(u);
 		
@@ -149,8 +183,6 @@ class BackEndApplicationTests {
 	
 	@Test
 	public void testAddGenre() {
-		g.setId(200);
-		g.setName("Unit Testing"); //just some random test genre that hopefully won't conflict
 		
 		result = as.addGenre(g);
 		
@@ -159,9 +191,7 @@ class BackEndApplicationTests {
 
 	@Test
 	public void testAddStudio() {
-		s.setId(400);
-		s.setName("Testimation");
-		
+
 		result = as.addStudio(s);
 		
 		assertTrue(result);
@@ -169,7 +199,6 @@ class BackEndApplicationTests {
 	
 	@Test
 	public void testAddWatchStatus() {
-		ws.setStatus("Just Testing");
 		
 		result = as.addWatchStatus(ws);
 		
@@ -178,17 +207,6 @@ class BackEndApplicationTests {
 	
 	@Test
 	public void testAddAnime() {
-		a.setId(30000);
-		a.setRating("T");
-		a.setScore(3.14);
-		List<Studio> slist = new ArrayList<>();
-		slist.add(s);
-		a.setStudios(slist);
-		List<Genre> glist = new ArrayList<>();
-		glist.add(g);
-		a.setThemes(glist);
-		a.setTitle("TokyoTest!!!");
-		a.setSynopsis("I just want to test this method");
 		
 		result = as.addAnime(a);
 		
@@ -198,11 +216,25 @@ class BackEndApplicationTests {
 	
 	@Test
 	public void testAddUserAnime() {
-		uAnime.setAnime(a);
-		uAnime.setUser(u);
-		uAnime.setWatchStatus(ws);
 		
 		result = as.addUserAnime(uAnime);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testAddReview() {
+
+		result = as.addReview(r);
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testUpdateStatus() {
+		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
+		uAnime.setWatchStatus(ws2);
+		
+		result = as.updateAnimeWatchStatus(uAnime);
 		
 		assertTrue(result);
 	}
