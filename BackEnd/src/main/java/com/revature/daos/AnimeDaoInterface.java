@@ -8,7 +8,7 @@ import com.revature.models.WatchStatus;
 
 public interface AnimeDaoInterface {
 	
-	void addAnime(Anime anime);
+	boolean addAnime(Anime anime);
 
 	List<Anime> getAllAnimes();
 

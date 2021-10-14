@@ -3,6 +3,7 @@ package com.revature.daos;
 import java.util.List;
 import java.util.Random;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -14,11 +15,21 @@ import com.revature.utils.HibernateUtil;
 public class AnimeDAO implements AnimeDaoInterface {
 	
 	@Override
-	public void addAnime(Anime anime) {
+	public boolean addAnime(Anime anime) {
 		
-		Session ses = HibernateUtil.getSession();
-		ses.save(anime);
+		try {
+			Session ses = HibernateUtil.getSession();
+			ses.save(anime);
+			HibernateUtil.closeSession();
+			return true;
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
 		HibernateUtil.closeSession();
+		return false;
+		
 
 	}
 	
