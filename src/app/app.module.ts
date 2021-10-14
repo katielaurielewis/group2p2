@@ -10,6 +10,9 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { WatchListComponent } from './components/watch-list/watch-list.component';
+import { RecommenderComponent } from './components/recommender/recommender.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     LibraryComponent,
     LoginComponent,
     RegistrationComponent,
-    NavbarComponent
+    NavbarComponent,
+    WatchListComponent,
+    RecommenderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
