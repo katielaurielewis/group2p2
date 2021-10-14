@@ -32,11 +32,11 @@ public class Anime {
 	@Column
 	private String synopsis;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Genre.class)
 	@JoinColumn(name = "genre_id")
 	private List<Genre> themes;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Studio.class)
 	@JoinColumn(name = "studio_id")
 	private List<Studio> studios;
 	

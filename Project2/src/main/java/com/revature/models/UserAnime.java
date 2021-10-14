@@ -68,6 +68,46 @@ public class UserAnime {
 	+ "anime=" + anime.getTitle() + ", watchStatus=" + watchStatus + "]";
 	}
 	//should not have a infinite loop since I changed it to specific values rather than the whole object
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public Anime getAnime() {
+		return anime;
+	}
+
+
+	public void setAnime(Anime anime) {
+		this.anime = anime;
+	}
+
+
+	public WatchStatus getWatchStatus() {
+		return watchStatus;
+	}
+
+
+	public void setWatchStatus(WatchStatus watchStatus) {
+		this.watchStatus = watchStatus;
+	}
 	
 	
 	
