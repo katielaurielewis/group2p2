@@ -75,5 +75,9 @@ public class AnimeService {
 		return rDao.addReview(review);
 	}
 	
+	public boolean addUserAnime(UserAnime uAnime) {
+		return uaDao.addUserAnime(uAnime);
+	}
+	
 
 }

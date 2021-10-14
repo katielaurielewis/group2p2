@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
@@ -127,5 +128,83 @@ class BackEndApplicationTests {
 		assertNotNull(a);
 		
 	}
+	
+	//Now for the UserService method
+	
+	@Test
+	public void testAddUser() {
+		//set user fields
+		u.setUsername("testuser");
+		u.setPassword("test");
+		u.setEmail("test@gmail.com");
+		u.setfName("Tess");
+		u.setlName("Tear");
+		
+		result = us.addUser(u);
+		
+		assertTrue(result);
+	}
+	
+	//Other Add methods:
+	
+	@Test
+	public void testAddGenre() {
+		g.setId(200);
+		g.setName("Unit Testing"); //just some random test genre that hopefully won't conflict
+		
+		result = as.addGenre(g);
+		
+		assertTrue(result);
+	}
 
+	@Test
+	public void testAddStudio() {
+		s.setId(400);
+		s.setName("Testimation");
+		
+		result = as.addStudio(s);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testAddWatchStatus() {
+		ws.setStatus("Just Testing");
+		
+		result = as.addWatchStatus(ws);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testAddAnime() {
+		a.setId(30000);
+		a.setRating("T");
+		a.setScore(3.14);
+		List<Studio> slist = new ArrayList<>();
+		slist.add(s);
+		a.setStudios(slist);
+		List<Genre> glist = new ArrayList<>();
+		glist.add(g);
+		a.setThemes(glist);
+		a.setTitle("TokyoTest!!!");
+		a.setSynopsis("I just want to test this method");
+		
+		result = as.addAnime(a);
+		
+		assertTrue(result);
+		
+	}
+	
+	@Test
+	public void testAddUserAnime() {
+		uAnime.setAnime(a);
+		uAnime.setUser(u);
+		uAnime.setWatchStatus(ws);
+		
+		result = as.addUserAnime(uAnime);
+		
+		assertTrue(result);
+	}
+	
 }
