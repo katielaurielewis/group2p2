@@ -1,6 +1,9 @@
 package com.revature.services;
 
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.revature.daos.AnimeDAO;
 import com.revature.daos.GenreDAO;
 import com.revature.daos.ReviewDAO;
@@ -14,7 +17,7 @@ import com.revature.models.Studio;
 import com.revature.models.UserAnime;
 import com.revature.models.WatchStatus;
 
-//@Service - not sure why this isnt working
+@Service
 public class AnimeService {
 	
 	AnimeDAO aDao = new AnimeDAO();
