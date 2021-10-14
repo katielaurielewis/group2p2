@@ -11,7 +11,7 @@ public class Launcher {
 
 		try(Session ses = HibernateUtil.getSession()){
 			System.out.println("Hello you have a Connection to your DB with Hibernate!");
-			HibernateUtil.closeSession(); //if you want to leave this connection test in, close the session within the try
+			HibernateUtil.closeSession();
 		} catch (HibernateException e) {
 			System.out.println("DB connection failed!!");
 			e.printStackTrace();
