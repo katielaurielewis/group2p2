@@ -36,27 +36,43 @@ public class AnimeDAO implements AnimeDaoInterface {
 	@Override
 	public List<Anime> getAllAnimes() {
 		
-		Session ses = HibernateUtil.getSession();
-		
-		List<Anime> animes = ses.createQuery("From Anime").list();
+		try {
+			Session ses = HibernateUtil.getSession();
+			
+			List<Anime> animes = ses.createQuery("From Anime").list();
+			
+			HibernateUtil.closeSession();
+			
+			return animes;
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
 		
 		HibernateUtil.closeSession();
-		return animes;
+		return null;
 	}
-
-	
 
 	
 	@Override
 	public Anime getAnimeById(int id) {
 		
-       Session ses = HibernateUtil.getSession();
+		try {
+			Session ses = HibernateUtil.getSession();
+
+			Anime animeById = ses.get(Anime.class, id);
+
+			HibernateUtil.closeSession();
+
+			return animeById;
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-       Anime animeById = ses.get(Anime.class, id);
-		
-       HibernateUtil.closeSession();
-       
-       return animeById;
+		HibernateUtil.closeSession();
+		return null;
 		
 	}
 	
@@ -64,28 +80,33 @@ public class AnimeDAO implements AnimeDaoInterface {
 	
 	@Override
 	public Anime getRandomAnime(int id) {
-		Session ses = HibernateUtil.getSession();
 		
-		List<Anime> animes = ses.createQuery("From Anime").list();
-		
-		//The size of all animes
-		int length = animes.size();
-		
-		Random rand = new Random();
+		try {
+			Session ses = HibernateUtil.getSession();
+			
+			List<Anime> animes = ses.createQuery("From Anime").list();
+			
+			//The size of all animes
+			int length = animes.size();
+			
+			Random rand = new Random();
 
-		//random id
-		id = rand.nextInt(length) + 1;
-		
-		//random anime
-		Anime randomAnime = ses.get(Anime.class, id);
-		
+			//random id
+			id = rand.nextInt(length) + 1;
+			
+			//random anime
+			Anime randomAnime = ses.get(Anime.class, id);
+			
+			HibernateUtil.closeSession();
+			
+			return randomAnime;
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+	
 		HibernateUtil.closeSession();
-		return randomAnime;
-	
-		
+		return null;
 	}
-
-
-	
 	
 }

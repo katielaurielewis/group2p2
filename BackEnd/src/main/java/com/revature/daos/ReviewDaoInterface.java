@@ -4,6 +4,6 @@ import com.revature.models.Review;
 
 public interface ReviewDaoInterface {
 
-	void addReview(Review review);
+	boolean addReview(Review review);
 
 }

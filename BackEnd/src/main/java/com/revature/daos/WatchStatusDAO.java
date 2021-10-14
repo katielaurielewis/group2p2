@@ -1,9 +1,7 @@
 package com.revature.daos;
 
-import javax.persistence.Query;
-
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.WatchStatus;
@@ -14,35 +12,22 @@ public class WatchStatusDAO implements WatchStatusDaoInterface{
 	
 	
 	@Override
-	public void addWatchStatus(WatchStatus watchStatus) {
+	public boolean addWatchStatus(WatchStatus watchStatus) {
 		
 
-		Session ses = HibernateUtil.getSession();
-		ses.save(watchStatus);
-		HibernateUtil.closeSession();
-		
-	}
-	
-
-	@Override
-	public void updateAnimeWatchStatus(WatchStatus watchStatus) { 
-		
+		try {
 			Session ses = HibernateUtil.getSession();
-			Transaction tran = ses.beginTransaction();
-			
-	        String HQL = "UPDATE WatchStatus SET status_name = '" + watchStatus.getStatus() 
-	        		+ "' WHERE status_id = " + watchStatus.getId();
-			
-			Query q = ses.createQuery(HQL);
-			
-			
-			q.executeUpdate();
-			
-			tran.commit();
-			
+			ses.save(watchStatus);
 			HibernateUtil.closeSession();
-	
-
+			
+			return true;
+			
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		
+		HibernateUtil.closeSession();
+		return false;
 	}
 
 
