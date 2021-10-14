@@ -7,11 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 
 //This model class is essentially just another table to list off the different status types
 
 @Entity
 @Table(name = "watch_statuses")
+@Component
 public class WatchStatus {
 
 	@Id

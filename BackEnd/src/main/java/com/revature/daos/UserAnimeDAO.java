@@ -4,10 +4,12 @@ import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.revature.models.UserAnime;
 import com.revature.utils.HibernateUtil;
 
+@Repository
 public class UserAnimeDAO implements UserAnimeDaoInterface {
 
 	@Override

@@ -4,9 +4,12 @@ import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
+
 import com.revature.models.WatchStatus;
 import com.revature.utils.HibernateUtil;
 
+@Repository
 public class WatchStatusDAO implements WatchStatusDaoInterface{
 	
 	

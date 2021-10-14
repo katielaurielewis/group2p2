@@ -11,11 +11,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 
 //This model class is essentially a Join Table along with a status to tell if they have watched it
 
 @Entity
 @Table(name = "user_animes")
+@Component
 public class UserAnime {
 
 	@Id

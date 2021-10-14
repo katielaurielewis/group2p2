@@ -14,7 +14,7 @@ import com.revature.models.Studio;
 import com.revature.models.UserAnime;
 import com.revature.models.WatchStatus;
 
-
+//@Service - not sure why this isnt working
 public class AnimeService {
 	
 	AnimeDAO aDao = new AnimeDAO();

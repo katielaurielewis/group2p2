@@ -1,9 +1,12 @@
 package com.revature.daos;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
 
+@Repository
 public class UserDAO implements UserDaoInterface {
 
 	

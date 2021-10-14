@@ -7,10 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 //This is based off the Themes and Genres of the API, it'll hopefully help for our Anime model
 
 @Entity
 @Table(name = "genres")
+@Component
 public class Genre {
 
 	@Id

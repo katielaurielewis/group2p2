@@ -7,12 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 
 //This is based off the Studio object from the API, also the same as the Producer and Licensor object
 	//Note, if we make any calls to the API for these, the URI is /producer
 
 @Entity
 @Table(name = "studios")
+@Component
 public class Studio {
 
 	@Id
