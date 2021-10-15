@@ -11,6 +11,6 @@ import com.revature.models.Studio;
 @Repository
 public interface StudioDAO extends JpaRepository<Studio, Integer> {
 	
-	public Optional<List<Studio>> findByName(String name);
+//	public Optional<List<Studio>> findByName(String name);
 	
 }

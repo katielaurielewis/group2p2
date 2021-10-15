@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.revature.models.Review;
 
 @Repository
-public interface ReviewDAO extends JpaRepository<Review, Integer> {
+public interface ReviewDAO extends JpaRepository<Review, String> {
 	
-	public Optional<List<Review>> findByName(String name);
+//	public Optional<List<Review>> findByName(String anime);
 	
 }

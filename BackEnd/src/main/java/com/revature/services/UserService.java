@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.daos.UserDAO;
@@ -9,11 +10,22 @@ import com.revature.models.User;
 @Service
 public class UserService {
 
-	UserDAO uDao = new UserDAO();
+	private UserDAO uDao;
 	
-	public boolean addUser(User user) {
-		return uDao.addUser(user);
+	@Autowired
+	public UserService (UserDAO uDao) {
+		super();
+		this.uDao = uDao;
+	}
+	
+	public boolean addUser (User u) {
 		
+		if(u == null) {
+			return false;
+		}
+		uDao.save(u);
+		
+		return true;
 	}
 	
 }

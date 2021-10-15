@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.revature.models.UserAnime;
 
 @Repository
-public interface UserAnimeDAO extends JpaRepository<UserAnime, Integer> {
+public interface UserAnimeDAO extends JpaRepository<UserAnime, String> {
 
-	public Optional<List<UserAnime>> findByName(String name);
+//	public Optional<List<UserAnime>> findByName(String anime);
 
 }

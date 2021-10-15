@@ -11,6 +11,6 @@ import com.revature.models.Genre;
 @Repository
 public interface GenreDAO extends JpaRepository<Genre, Integer> {
 	
-	public Optional<List<Genre>> findByName(String name);
+//	public Optional<List<Genre>> findByName(String name);
 	
 }
