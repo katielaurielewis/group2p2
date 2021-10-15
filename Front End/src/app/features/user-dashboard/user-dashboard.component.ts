@@ -12,4 +12,7 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ username = "Jax";
+ friend = "";
+
 }

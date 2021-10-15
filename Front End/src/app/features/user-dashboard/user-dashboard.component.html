@@ -1,1 +1,66 @@
-<p>user-dashboard works!</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Dashboard</title>
+
+    <link rel="stylesheet" href="user-dashboard.component.css">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+    
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none" *ngIf="username">
+      <span class="fs-4">Welcome {{username}}</span>
+    </a>
+  </header>
+
+  <main>
+    <h3>View your anime library</h3>
+    <p class="fs-5 col-md-8"></p>
+
+    <div class="mb-5">
+      <a href="../examples/" class="btn btn-primary btn-lg px-4">Watched</a>  
+      <a href="../examples/" class="btn btn-primary btn-lg px-4">To Be Watched</a>
+    </div>
+
+    <hr class="col-3 col-md-2 mb-5">
+
+    <div class="row g-5">
+      <div class="col-md-6">
+        <h3>View another user's library</h3>
+           </div>
+      <input type="text" [(ngModel)]="friend" ><br/>
+      <a href="../examples/" class="btn btn-primary btn-lg px-4">Go to {{friend}}'s library</a>  
+      <div class="col-md-6">
+      </div>
+    </div>
+  </main>
+  <footer class="pt-5 my-5 text-muted border-top">
+  </footer>
+</div>
+
+
+    <script src="user-dashboard.component.ts"></script>
+
+      
+  </body>
+</html>
