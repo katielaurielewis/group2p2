@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateUtil {
+public class HibernateUtil {	
 	
 	private static Configuration config = new Configuration().configure("hibernate.cfg.xml")
 			.setProperty("hibernate.connection.username", System.getenv("username"))
