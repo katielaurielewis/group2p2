@@ -32,6 +32,8 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(u);
 		}
 		
+		uService.addUser(u);
+		
 		return ResponseEntity.ok(u);
 		
 	}
