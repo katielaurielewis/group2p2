@@ -8,27 +8,8 @@ import com.revature.models.WatchStatus;
 import com.revature.utils.HibernateUtil;
 
 @Repository
-public class WatchStatusDAO implements WatchStatusDaoInterface{
+public interface WatchStatusDAO implements JpaRepository<WatchStatus Integer> {
 	
+	public Optional<List<WatchStatus>> findByName(String name);
 	
-	@Override
-	public boolean addWatchStatus(WatchStatus watchStatus) {
-		
-
-		try {
-			Session ses = HibernateUtil.getSession();
-			ses.save(watchStatus);
-			HibernateUtil.closeSession();
-			
-			return true;
-			
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		}
-		
-		HibernateUtil.closeSession();
-		return false;
-	}
-
-
 }

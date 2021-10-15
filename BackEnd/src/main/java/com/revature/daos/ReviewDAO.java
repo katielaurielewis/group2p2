@@ -8,26 +8,8 @@ import com.revature.models.Review;
 import com.revature.utils.HibernateUtil;
 
 @Repository
-public class ReviewDAO implements ReviewDaoInterface {
+public interface ReviewDAO implements JpaRepository<Review Integer> {
 	
-
-	@Override
-	public boolean addReview(Review review) {
-		
-		try {
-			Session ses = HibernateUtil.getSession();
-			ses.save(review);
-			HibernateUtil.closeSession();
-			
-			return true;
-			
-		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		HibernateUtil.closeSession();
-		return false;
-	}
-
+	public Optional<List<Review>> findByName(String name);
+	
 }

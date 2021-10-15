@@ -8,26 +8,8 @@ import com.revature.models.Genre;
 import com.revature.utils.HibernateUtil;
 
 @Repository
-public class GenreDAO implements GenreDaoInterface {
+public interface GenreDAO implements JpaRepository<Genre Integer> {
 	
-
-	@Override
-	public boolean addGenre(Genre genre) {
-		
-		try {
-			Session ses = HibernateUtil.getSession();
-			ses.save(genre);
-			HibernateUtil.closeSession();
-			
-			return true;
-			
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		}
-		
-		HibernateUtil.closeSession();
-		return false;
-		
-	}
-
+	public Optional<List<Genre>> findByName(String name);
+	
 }

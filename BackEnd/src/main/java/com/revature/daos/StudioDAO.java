@@ -8,25 +8,8 @@ import com.revature.models.Studio;
 import com.revature.utils.HibernateUtil;
 
 @Repository
-public class StudioDAO implements StudioDaoInterface {
-
-
-	@Override
-	public boolean addStudio(Studio studio) {
-		
-		try {
-			Session ses = HibernateUtil.getSession();
-			ses.save(studio);
-			HibernateUtil.closeSession();
-			
-			return true;
-			
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		}
-		
-		HibernateUtil.closeSession();
-		return false;
-		
-	}
+public interface StudioDAO implements JpaRepository<Studio Integer> {
+	
+	public Optional<List<Studio>> findByName(String name);
+	
 }
