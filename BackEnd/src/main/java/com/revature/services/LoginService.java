@@ -18,7 +18,7 @@ public class LoginService {
 	}
 	
 	public boolean checkCredentials(String username, String password) {
-        User u = uDao.getUserByUsername(username);
+        User u = uDao.findByName(username);
         
         if(u == null) {
             return false;
@@ -28,6 +28,5 @@ public class LoginService {
         return false;
         }
     } 
-
-
+	
 }
