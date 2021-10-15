@@ -3,8 +3,14 @@ package com.revature.utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 public class HibernateUtil {
+	
+	@Autowired
+	private ApplicationContext context;
+	
 	
 	private static Configuration config = new Configuration().configure("hibernate.cfg.xml")
 			.setProperty("hibernate.connection.username", System.getenv("username"))
