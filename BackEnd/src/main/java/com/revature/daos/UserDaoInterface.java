@@ -8,6 +8,6 @@ public interface UserDaoInterface {
 	
 	User getUserByPassword(String password);
 
-	void addUser(User user);
+	boolean addUser(User user);
 
 }

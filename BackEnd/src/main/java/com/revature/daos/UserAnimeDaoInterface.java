@@ -4,8 +4,8 @@ import com.revature.models.UserAnime;
 
 public interface UserAnimeDaoInterface {
 
-	void addUserAnime(UserAnime uAnime);
+	boolean addUserAnime(UserAnime uAnime);
 	
-	void updateAnimeWatchStatus(UserAnime uAnime);
+	boolean updateAnimeWatchStatus(UserAnime uAnime);
 	
 }

@@ -11,8 +11,8 @@ public class UserService {
 
 	UserDAO uDao = new UserDAO();
 	
-	public void addUser(User user) {
-		uDao.addUser(user);
+	public boolean addUser(User user) {
+		return uDao.addUser(user);
 		
 	}
 	

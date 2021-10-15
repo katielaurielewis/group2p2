@@ -4,6 +4,6 @@ import com.revature.models.Studio;
 
 public interface StudioDaoInterface {
 
-	void addStudio(Studio studio);
+	boolean addStudio(Studio studio);
 
 }

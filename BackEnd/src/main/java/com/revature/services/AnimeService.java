@@ -27,9 +27,9 @@ public class AnimeService {
 	StudioDAO sDao = new StudioDAO();
 	ReviewDAO rDao = new ReviewDAO();
 
-	public void addAnime(Anime anime) {
+	public boolean addAnime(Anime anime) {
 		
-		aDao.addAnime(anime);
+		return aDao.addAnime(anime);
 
 	}
 		
@@ -44,16 +44,10 @@ public class AnimeService {
 		return aDao.getAnimeById(id);
 		
 	}
-		
-	public void updateAnimeWatchStatus(WatchStatus watchStatus) { 
-		
-		wDao.updateAnimeWatchStatus(watchStatus);
-			
-	}
 	
-	//I believe we are going to need this instead of the one above, so we change the actual user's status, not the record in the database
-	public void updateAnimeWatchStatus(UserAnime uAnime) {
-		uaDao.updateAnimeWatchStatus(uAnime);
+	//I believe we are going to need this instead of the one with WatchStatus, so we change the actual user's status, not the record in the database
+	public boolean updateAnimeWatchStatus(UserAnime uAnime) {
+		return uaDao.updateAnimeWatchStatus(uAnime);
 	}
 
 	
@@ -63,22 +57,26 @@ public class AnimeService {
 	}
 
 
-	public void addWatchStatus(WatchStatus watchStatus) {
-		wDao.addWatchStatus(watchStatus);
+	public boolean addWatchStatus(WatchStatus watchStatus) {
+		return wDao.addWatchStatus(watchStatus);
 		
 	}
 	
-	public void addGenre(Genre genre) {
-		gDao.addGenre(genre);
+	public boolean addGenre(Genre genre) {
+		return gDao.addGenre(genre);
 		
 	}
 	
-	public void addStudio(Studio studio) {
-		sDao.addStudio(studio);
+	public boolean addStudio(Studio studio) {
+		return sDao.addStudio(studio);
 	}
 	
-	public void addReview(Review review) {
-		rDao.addReview(review);
+	public boolean addReview(Review review) {
+		return rDao.addReview(review);
+	}
+	
+	public boolean addUserAnime(UserAnime uAnime) {
+		return uaDao.addUserAnime(uAnime);
 	}
 	
 
