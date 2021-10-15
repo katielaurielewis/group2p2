@@ -1,14 +1,15 @@
 package com.revature.daos;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.Review;
-import com.revature.utils.HibernateUtil;
 
 @Repository
-public interface ReviewDAO implements JpaRepository<Review Integer> {
+public interface ReviewDAO extends JpaRepository<Review, Integer> {
 	
 	public Optional<List<Review>> findByName(String name);
 	

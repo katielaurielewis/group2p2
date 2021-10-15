@@ -1,14 +1,15 @@
 package com.revature.daos;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.Genre;
-import com.revature.utils.HibernateUtil;
 
 @Repository
-public interface GenreDAO implements JpaRepository<Genre Integer> {
+public interface GenreDAO extends JpaRepository<Genre, Integer> {
 	
 	public Optional<List<Genre>> findByName(String name);
 	

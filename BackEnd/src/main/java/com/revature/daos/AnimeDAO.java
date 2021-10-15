@@ -1,18 +1,15 @@
 package com.revature.daos;
 
 import java.util.List;
-import java.util.Random;
+import java.util.Optional;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.Anime;
 
-import com.revature.utils.HibernateUtil;
-
 @Repository
-public interface AnimeDAO implements JpaRepository<Anime Integer> {
+public interface AnimeDAO extends JpaRepository<Anime, Integer> {
 	
 	public Optional<List<Anime>> findByName(String name);
 	

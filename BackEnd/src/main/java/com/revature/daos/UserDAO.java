@@ -1,14 +1,16 @@
 package com.revature.daos;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.revature.models.User;
-import com.revature.utils.HibernateUtil;
 
 @Repository
-public interface UserDAO implements JpaRepository<User Integer> {
+public interface UserDAO extends JpaRepository<User, Integer> {
 	
 	public Optional<List<User>> findByName(String name);
 	
