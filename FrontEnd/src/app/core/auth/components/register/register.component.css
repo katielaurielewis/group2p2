@@ -1,0 +1,22 @@
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    
+}
+
+.form{
+    padding-inline: 100px;
+    border-style:solid;
+    padding-top: 15px;
+    width:500px;
+    background: rgb(63, 161, 96);
+    background: linear-gradient(rgb(63, 161, 96) 0%, rgb(98, 57, 153) 100%);
+    color: white;
+}
+
+label{
+    padding-top: 10px;
+}
+

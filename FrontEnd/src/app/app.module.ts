@@ -8,6 +8,7 @@ import { NavbarComponent } from './core/navbar/navbar.component';
 import { RecommenderComponent } from './features/recommender/recommender.component';
 import { LibraryComponent } from './features/library/library.component';
 import { UserDashboardComponent } from './features/user-dashboard/user-dashboard.component';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { UserDashboardComponent } from './features/user-dashboard/user-dashboard
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CoreModule
   ],
   
   providers: [],
