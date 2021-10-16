@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.revature.models.Anime;
 
 @Repository
-public interface AnimeDAO extends JpaRepository<Anime, String> {
+public interface AnimeDAO extends JpaRepository<Anime, Integer> {
 	
-//	public Optional<List<Anime>> findByName(String name);
+	public Optional<List<Anime>> findByTitle(String title);
 	
 }
