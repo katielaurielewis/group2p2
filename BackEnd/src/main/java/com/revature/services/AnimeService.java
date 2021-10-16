@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,10 +40,13 @@ public class AnimeService {
 		this.rDao = rDao;
 	}
 
-	public Anime addAnime(Anime anime) {
+	public boolean addAnime(Anime anime) {
 		
-		return aDao.save(anime);
-
+		if(aDao.save(anime) != null)
+		{
+		return true;
+		}
+		return false;
 	}
 //		
 	public List<Anime> getAllAnimes() {
@@ -51,9 +55,9 @@ public class AnimeService {
 		
 	}
 //
-	public Anime getAnimeById(int id) {
+	public Optional<Anime> getAnimeById(int id) {
 		     
-		return aDao.getById(id);
+		return aDao.findById(id);
 		
 	}
 //	
