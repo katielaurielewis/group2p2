@@ -67,6 +67,16 @@ public class LoggingAspect {
 	}
 	
 	//Main one I would especially like to log is the update method
+	@Before("execution(boolean updateAnimeWatchStatus(..))")
+	public void logServiceUpdateStatus(JoinPoint jp) {
+		log.info(jp.getTarget() + " is attempting to change a user's watch status");
+	}
 	
+	
+	//May as well log the Models layer ------------------------------------
+	@Before("within(com.revature.models.*)")
+	public void logModelMethods(JoinPoint jp) {
+		log.info(jp.getTarget() + " invoked " + jp.getSignature());
+	}
 	
 }
