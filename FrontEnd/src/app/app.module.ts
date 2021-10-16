@@ -19,7 +19,7 @@ import { AuthInterceptor } from './core/auth/auth.interceptor';
     NavbarComponent,
     RecommenderComponent,
     LibraryComponent,
-    UserDashboardComponent,
+    UserDashboardComponent
   ],
 
   imports: [
