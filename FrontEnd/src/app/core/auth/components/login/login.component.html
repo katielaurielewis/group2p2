@@ -1,14 +1,14 @@
 <div class="center">
     <div class="form">
         <h2 >Login</h2>
-        <form class="p-1">
+        <form [formGroup]="loginForm" class="p-1" (ngSubmit)="login()">
             <div>
                 <label for="username">Username</label>
-                <input id="username" type="text" placeholder="Username" class="form-control">
+                <input formControlName="username" id="username" type="text" placeholder="Username" class="form-control">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" placeholder="Password" id="password" class="form-control">
+                <input formControlName="password" type="text" placeholder="Password" id="password" class="form-control">
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-secondary">Submit</button>
