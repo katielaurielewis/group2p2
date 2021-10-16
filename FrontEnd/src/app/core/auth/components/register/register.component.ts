@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-register',
@@ -9,10 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  endpoint: string = "http://localhost:4200/register"
+  
   public registerForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private http : HttpClient, private router : Router) { }
+  user!: User;
+  constructor(private formBuilder: FormBuilder, private router : Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -25,14 +27,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    this.http.post<any>(this.endpoint, this.registerForm)
-    .subscribe(res=>{
-      alert("Registration Complete");
-      this.registerForm.reset();
-      this.router.navigate(['login']);
-    },err=>{
-      alert("Something went wrong")
-    })
-  }
+    this.user = this.registerForm.value;
 
+    this.authService
+      .register(this.user)
+      .subscribe(res => {
+        alert("User registered");
+        this.registerForm.reset();
+        this.router.navigate(['login']);
+      }, err=>{
+        alert("Something went wrong")
+      })
+     
+  }
 }
