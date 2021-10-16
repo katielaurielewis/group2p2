@@ -66,8 +66,12 @@ public class AnimeController {
 		return ResponseEntity.ok(animeList);
 		
 	}
+<<<<<<< HEAD
 
 }
 
 
 
+=======
+}
+>>>>>>> 4824b6404b5a57a277cf22822f1529064f4a4b9c
