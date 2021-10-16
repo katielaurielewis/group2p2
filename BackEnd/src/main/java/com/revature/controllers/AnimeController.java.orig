@@ -54,8 +54,12 @@ public class AnimeController {
 	@GetMapping(value = "/name/{name}")  
 	public ResponseEntity<List<Anime>> findByName(@PathVariable String name) {
 		
+		
+<<<<<<< HEAD
+		Optional<List<Anime>> optional = aDAO.findByName(name);
+=======
 		Optional<List<Anime>> optional = aDAO.findByTitle(name);
-
+>>>>>>> refactor
 		
 		List<Anime> animeList = null;
 		
@@ -66,6 +70,8 @@ public class AnimeController {
 		return ResponseEntity.ok(animeList);
 		
 	}
-
+<<<<<<< HEAD
 }
-
+=======
+}
+>>>>>>> refactor

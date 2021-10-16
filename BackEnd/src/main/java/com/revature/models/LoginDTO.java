@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoginDTO {
 
-	//only models the username/password of our users
 	//whole purpose is for login functionality
 	
 	private String username;
 	private String password;
+	private String token; 
 	
 	//boilerplate code---------------------------------------------
 	
@@ -22,6 +22,14 @@ public class LoginDTO {
 		super();
 		this.username = username;
 		this.password = password;
+	}
+	
+
+	public LoginDTO(String username, String password, String token) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.token = token;
 	}
 
 	public String getUsername() {
@@ -39,5 +47,14 @@ public class LoginDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
 	
 }
