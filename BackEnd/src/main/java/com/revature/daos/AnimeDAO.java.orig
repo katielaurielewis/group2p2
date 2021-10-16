@@ -11,6 +11,10 @@ import com.revature.models.Anime;
 @Repository
 public interface AnimeDAO extends JpaRepository<Anime, Integer> {
 	
+<<<<<<< HEAD
+	public Optional<List<Anime>> findByName(String name);
+=======
 	public Optional<List<Anime>> findByTitle(String title);
+>>>>>>> refactor
 	
 }

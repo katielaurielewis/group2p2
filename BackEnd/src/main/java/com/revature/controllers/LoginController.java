@@ -31,10 +31,10 @@ public class LoginController {
 	public ResponseEntity<LoginDTO> checkCredentials(@RequestBody LoginDTO ldto){
 		
 		if(lService.checkCredentials(ldto.getUsername(), ldto.getPassword())) {
-			return ResponseEntity.ok().body(ldto);
+			return ResponseEntity.ok().build();
 		}
 		
-		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ldto);
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 		
 	}
 
