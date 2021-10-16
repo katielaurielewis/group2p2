@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.revature.models.Anime;
@@ -20,7 +21,7 @@ import com.revature.models.Studio;
 import com.revature.models.User;
 import com.revature.models.UserAnime;
 import com.revature.models.WatchStatus;
-import com.revature.services.AnimeService;
+//import com.revature.services.AnimeService;
 import com.revature.services.LoginService;
 import com.revature.services.UserService;
 
@@ -28,9 +29,17 @@ import com.revature.services.UserService;
 class BackEndApplicationTests {
 
 	//Service objects to test with
-	public static AnimeService as;
+	//public static AnimeService as;
 	public static UserService us;
 	public static LoginService ls;
+	
+	@Autowired
+	public BackEndApplicationTests(UserService us, LoginService ls) {
+		super();
+		this.us = us;
+		this.ls = ls;
+		//this.as = as;
+	}
 	
 	//variables and objects to use within tests
 	public static User u = new User();
@@ -47,9 +56,6 @@ class BackEndApplicationTests {
 	
 	@BeforeAll
 	public static void createServices() {
-		as = new AnimeService();
-		us = new UserService();
-		ls = new LoginService();
 		
 		//also want to set the fields here, so we don't run into problems about which test goes first
 		//set user fields
@@ -92,9 +98,7 @@ class BackEndApplicationTests {
 	
 	@AfterAll
 	public static void clearServices() {
-		as = null;
-		us = null;
-		ls = null;
+		
 	}
 	
 	//Going to test the Login method first --------------------------------
@@ -102,8 +106,8 @@ class BackEndApplicationTests {
 	@Test
 	public void testLogin() {
 		
-		uname ="validusername"; //make sure to edit this to an actual DB username
-		pass = "validpassword";
+		uname ="testUsername"; //these are valid credentials in the database
+		pass = "testPassword";
 		
 		result = ls.checkCredentials(uname, pass);
 		
@@ -127,116 +131,116 @@ class BackEndApplicationTests {
 	
 	//Now, let's test the select/get methods -----------------------------
 	
-	@Test
-	public void testGetAllAnimes() {
-		
-		List<Anime> aList = as.getAllAnimes();
-		
-		assertNotNull(aList);
-		
-	}
-	
-	@Test
-	public void testGetAnimeById() {
-		
-		id = 1; //this should give us Cowboy Bebop
-		
-		a = as.getAnimeById(id);
-		
-		assertNotNull(a);
-		
-	}
-	
-	@Test
-	public void testGetAnimeByWrongId() {
-		
-		id = 2; //strangely, the id of 2 does not correlate to any Anime
-		
-		a = as.getAnimeById(id);
-		
-		assertNull(a);
-		
-	}
-	
-	@Test
-	public void testGetRandomAnime() {
-		
-		id = 100; //just a random id
-		
-		a = as.getRandomAnime(id);
-		
-		assertNotNull(a);
-		
-	}
-	
-	//Now for the UserService method
-	
-	@Test
-	public void testAddUser() {
-		
-		result = us.addUser(u);
-		
-		assertTrue(result);
-	}
-	
-	//Other Add methods:
-	
-	@Test
-	public void testAddGenre() {
-		
-		result = as.addGenre(g);
-		
-		assertTrue(result);
-	}
-
-	@Test
-	public void testAddStudio() {
-
-		result = as.addStudio(s);
-		
-		assertTrue(result);
-	}
-	
-	@Test
-	public void testAddWatchStatus() {
-		
-		result = as.addWatchStatus(ws);
-		
-		assertTrue(result);
-	}
-	
-	@Test
-	public void testAddAnime() {
-		
-		result = as.addAnime(a);
-		
-		assertTrue(result);
-		
-	}
-	
-	@Test
-	public void testAddUserAnime() {
-		
-		result = as.addUserAnime(uAnime);
-		
-		assertTrue(result);
-	}
-	
-	@Test
-	public void testAddReview() {
-
-		result = as.addReview(r);
-		assertTrue(result);
-	}
-	
-	@Test
-	public void testUpdateStatus() {
-		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
-		uAnime.setWatchStatus(ws2);
-		
-		result = as.updateAnimeWatchStatus(uAnime);
-		
-		assertTrue(result);
-	}
+//	@Test
+//	public void testGetAllAnimes() {
+//		
+//		List<Anime> aList = as.getAllAnimes();
+//		
+//		assertNotNull(aList);
+//		
+//	}
+//	
+//	@Test
+//	public void testGetAnimeById() {
+//		
+//		id = 1; //this should give us Cowboy Bebop
+//		
+//		a = as.getAnimeById(id);
+//		
+//		assertNotNull(a);
+//		
+//	}
+//	
+//	@Test
+//	public void testGetAnimeByWrongId() {
+//		
+//		id = 2; //strangely, the id of 2 does not correlate to any Anime
+//		
+//		a = as.getAnimeById(id);
+//		
+//		assertNull(a);
+//		
+//	}
+//	
+//	@Test
+//	public void testGetRandomAnime() {
+//		
+//		id = 100; //just a random id
+//		
+//		a = as.getRandomAnime(id);
+//		
+//		assertNotNull(a);
+//		
+//	}
+//	
+//	//Now for the UserService method
+//	
+//	@Test
+//	public void testAddUser() {
+//		
+//		result = us.addUser(u);
+//		
+//		assertTrue(result);
+//	}
+//	
+//	//Other Add methods:
+//	
+//	@Test
+//	public void testAddGenre() {
+//		
+//		result = as.addGenre(g);
+//		
+//		assertTrue(result);
+//	}
+//
+//	@Test
+//	public void testAddStudio() {
+//
+//		result = as.addStudio(s);
+//		
+//		assertTrue(result);
+//	}
+//	
+//	@Test
+//	public void testAddWatchStatus() {
+//		
+//		result = as.addWatchStatus(ws);
+//		
+//		assertTrue(result);
+//	}
+//	
+//	@Test
+//	public void testAddAnime() {
+//		
+//		result = as.addAnime(a);
+//		
+//		assertTrue(result);
+//		
+//	}
+//	
+//	@Test
+//	public void testAddUserAnime() {
+//		
+//		result = as.addUserAnime(uAnime);
+//		
+//		assertTrue(result);
+//	}
+//	
+//	@Test
+//	public void testAddReview() {
+//
+//		result = as.addReview(r);
+//		assertTrue(result);
+//	}
+//	
+//	@Test
+//	public void testUpdateStatus() {
+//		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
+//		uAnime.setWatchStatus(ws2);
+//		
+//		result = as.updateAnimeWatchStatus(uAnime);
+//		
+//		assertTrue(result);
+//	}
 	
 }
