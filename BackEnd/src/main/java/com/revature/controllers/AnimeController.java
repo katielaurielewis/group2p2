@@ -66,8 +66,4 @@ public class AnimeController {
 		return ResponseEntity.ok(animeList);
 		
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> refactor
