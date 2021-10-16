@@ -8,6 +8,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
+import com.revature.models.User;
+
 @Component
 @Aspect
 public class LoggingAspect {
@@ -42,5 +44,29 @@ public class LoggingAspect {
 			log.info("USER LOGIN FAILED");
 		}
 	}
+	
+	//User Service method------------------------
+	@Before("within(com.revature.services.UserService)")
+	public void logUserServiceMethods(JoinPoint jp) {
+		log.info(jp.getTarget() + " invoked " + jp.getSignature());
+	}
+	
+	@AfterReturning(pointcut="execution(boolean addUser(..))", returning="returnedBoolean")
+	public void logAddUser(JoinPoint jp, Boolean returnedBoolean) {
+		if(returnedBoolean) {
+			log.info((User)jp.getArgs()[0] + " was registered successfully");
+		} else {
+			log.info("User could not be registered");
+		}
+	}
+	
+	//Anime Services
+	@Before("within(com.revature.services.AnimeService)")
+	public void logAnimeServiceMethods(JoinPoint jp) {
+		log.info(jp.getTarget() + " invoked " + jp.getSignature());
+	}
+	
+	//Main one I would especially like to log is the update method
+	
 	
 }
