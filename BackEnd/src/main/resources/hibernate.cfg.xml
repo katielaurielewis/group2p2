@@ -10,8 +10,8 @@
  		<!-- JDBC -->
  		<!-- Make sure to change these when we get running DB -->
 		<property name="hibernate.connection.username">${USERNAME}</property>
-		<property name="hibernate.connection.password">${password}</property>
-		<property name="hibernate.connection.url">${url}</property>
+		<property name="hibernate.connection.password">${PASSWORD}</property>
+		<property name="hibernate.connection.url">${URL}</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		
 		<!-- Hibernate Properties -->

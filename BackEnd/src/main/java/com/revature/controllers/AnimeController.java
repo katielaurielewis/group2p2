@@ -13,38 +13,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.daos.AnimeDAO;
+
 import com.revature.models.Anime;
+import com.revature.services.AnimeService;
 
 
 @RestController
-@RequestMapping(value="/anime")
+@RequestMapping(value="/anilib")
 public class AnimeController {
 	
 
-	private AnimeDAO aDAO;
+	private AnimeService aService;
 	
 	@Autowired
-	public AnimeController(AnimeDAO aDAO) {
+	public AnimeController(AnimeService aService) {
 		super();
-		this.aDAO = aDAO;
+		this.aService = aService;
 	}
 	
 	@GetMapping
 	public ResponseEntity<List<Anime>> geAllAnime(){
-		return ResponseEntity.status(200).body(aDAO.findAll());
+		return ResponseEntity.status(200).body(aService.findAll());
 	}
 	
 	@PostMapping
 	public ResponseEntity addAnime(@RequestBody Anime a) {
-		aDAO.save(a);
+		aService.save(a);
 		return ResponseEntity.status(200).build();
 	}
 	
 	
 	@GetMapping(value = "/id/{id}")
 	public ResponseEntity<Anime> findById(@PathVariable int id){
-		Anime a = aDAO.findById(id).get();
+		Anime a = aService.findById(id).get();
 		return ResponseEntity.ok(a);
 	}
 	
@@ -52,15 +53,15 @@ public class AnimeController {
 	
 	
 	@GetMapping(value = "/name/{name}")  
-	public ResponseEntity<List<Anime>> findByName(@PathVariable String name) {
+	public ResponseEntity<List<Anime>> findByName(@PathVariable String title) {
 		
 		
-		Optional<List<Anime>> optional = aDAO.findByName(name);
+		Optional<List<Anime>> opt = aService.findByTitle(title);
 		
 		List<Anime> animeList = null;
 		
-		if(optional.isPresent()) { 
-			animeList = optional.get(); 
+		if(opt.isPresent()) { 
+			animeList = opt.get(); 
 		}
 		
 		return ResponseEntity.ok(animeList);

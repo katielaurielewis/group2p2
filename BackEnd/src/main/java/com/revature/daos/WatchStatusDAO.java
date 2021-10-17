@@ -11,6 +11,6 @@ import com.revature.models.WatchStatus;
 @Repository
 public interface WatchStatusDAO extends JpaRepository<WatchStatus, String> {
 	
-//	public Optional<List<WatchStatus>> findByName(String status);
+	public Optional<List<WatchStatus>> findByStatus(String status);
 	
 }

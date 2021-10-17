@@ -6,11 +6,12 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.revature.models.Anime;
 import com.revature.models.Review;
 
 @Repository
-public interface ReviewDAO extends JpaRepository<Review, String> {
+public interface ReviewDAO extends JpaRepository<Review, Integer> {
 	
-//	public Optional<List<Review>> findByName(String anime);
+	public Optional<List<Anime>> findByAnime(Anime anime);
 	
 }
