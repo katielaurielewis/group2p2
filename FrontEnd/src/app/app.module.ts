@@ -10,7 +10,7 @@ import { RecommenderComponent } from './features/recommender/recommender.compone
 import { LibraryComponent } from './features/library/library.component';
 import { UserDashboardComponent } from './features/user-dashboard/user-dashboard.component';
 import { CoreModule } from './core/core.module';
-import { AuthInterceptor } from './core/auth/auth.interceptor';
+import { AuthInterceptor } from './core/auth/services/auth.interceptor';
 
 
 @NgModule({

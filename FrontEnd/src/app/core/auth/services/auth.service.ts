@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { shareReplay, retry, catchError} from 'rxjs/operators'
 
-import { User } from './models/user';
+import { User } from '../models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({
