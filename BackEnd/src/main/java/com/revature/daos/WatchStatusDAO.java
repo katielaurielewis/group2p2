@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.revature.models.WatchStatus;
 
 @Repository
-public interface WatchStatusDAO extends JpaRepository<WatchStatus, String> {
+public interface WatchStatusDAO extends JpaRepository<WatchStatus, Integer> {
 	
 	public Optional<List<WatchStatus>> findByStatus(String status);
 	

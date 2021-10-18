@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.LoginDTO;
 import com.revature.services.LoginService;
+import com.revature.utils.JwtUtil;
 
 @RestController
 @RequestMapping("/login")
@@ -31,10 +32,15 @@ public class LoginController {
 	public ResponseEntity<LoginDTO> checkCredentials(@RequestBody LoginDTO ldto){
 		
 		if(lService.checkCredentials(ldto.getUsername(), ldto.getPassword())) {
+			//Give JWT for the user
+			String token = JwtUtil.getJWTToken(ldto.getUsername());
+			ldto.setToken(token);
+			
+			//Send JWT back to the client
 			return ResponseEntity.ok().body(ldto);
 		}
 		
-		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ldto);
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 		
 	}
 

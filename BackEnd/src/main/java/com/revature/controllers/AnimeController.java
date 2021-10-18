@@ -55,8 +55,10 @@ public class AnimeController {
 	@GetMapping(value = "/name/{name}")  
 	public ResponseEntity<List<Anime>> findByName(@PathVariable String title) {
 		
+
 		
 		Optional<List<Anime>> opt = aService.findByTitle(title);
+
 		
 		List<Anime> animeList = null;
 		
@@ -67,4 +69,6 @@ public class AnimeController {
 		return ResponseEntity.ok(animeList);
 		
 	}
+
 }
+
