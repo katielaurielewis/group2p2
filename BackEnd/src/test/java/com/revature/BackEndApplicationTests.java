@@ -2,11 +2,11 @@ package com.revature;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -146,9 +146,9 @@ class BackEndApplicationTests {
 
 		id = 1; // this should give us Cowboy Bebop
 
-		a = as.findById(id).get();
+		Optional<Anime> oa = as.findById(id);
 
-		assertNotNull(a);
+		assertTrue(oa.isPresent());
 
 	}
 
@@ -157,9 +157,9 @@ class BackEndApplicationTests {
 
 		id = 2; // strangely, the id of 2 does not correlate to any Anime
 
-		a = as.findById(id).get();
+		Optional<Anime> oa = as.findById(id);
 
-		assertNull(a);
+		assertFalse(oa.isPresent());
 
 	}
 
