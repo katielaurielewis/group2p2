@@ -17,7 +17,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.revature.models.Anime;
 import com.revature.models.Genre;
-import com.revature.models.Review;
 import com.revature.models.Studio;
 import com.revature.models.User;
 import com.revature.models.UserAnime;
@@ -54,7 +53,6 @@ class BackEndApplicationTests {
 	public static Genre g = new Genre();
 	public static UserAnime uAnime = new UserAnime();
 	public static Studio s = new Studio();
-	public static Review r = new Review();
 	public static WatchStatus ws = new WatchStatus();
 	public boolean result;
 	public int id;
@@ -97,16 +95,17 @@ class BackEndApplicationTests {
 		uAnime.setUser(u);
 		uAnime.setWatchStatus(ws);
 
-		r.setAnime(a);
-		r.setAuthor(u);
-		r.setStarRating(4.1);
-		r.setTextReview("Was pretty good");
-
 	}
 
 	@AfterAll
 	public static void clearServices() {
-
+		u = null;
+		a = null;
+		g = null;
+		uAnime = null;
+		s = null;
+		ws = null;
+		
 	}
 
 	// Going to test the Login method first --------------------------------
@@ -213,7 +212,8 @@ class BackEndApplicationTests {
 	public void testUpdateStatus() {
 		
 		//add initial useranime
-		uas.save(uAnime);
+		uAnime = uas.save(uAnime); //this way we get back the id
+		//that will be needed if we want to update it instead of delete it
 		
 		//Change the UserAnime's watch status
 		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
