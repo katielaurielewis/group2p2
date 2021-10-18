@@ -16,8 +16,7 @@ import com.revature.utils.JwtUtil;
 
 @RestController
 @RequestMapping("/login")
-@CrossOrigin
-@ResponseBody
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials ="true")
 public class LoginController {
 	
 	private LoginService lService;
