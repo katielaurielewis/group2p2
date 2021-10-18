@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,6 +22,7 @@ import com.revature.models.Studio;
 import com.revature.models.User;
 import com.revature.models.UserAnime;
 import com.revature.models.WatchStatus;
+import com.revature.services.AnimeService;
 //import com.revature.services.AnimeService;
 import com.revature.services.LoginService;
 import com.revature.services.UserService;
@@ -29,7 +31,7 @@ import com.revature.services.UserService;
 class BackEndApplicationTests {
 
 	//Service objects to test with
-	//public static AnimeService as;
+	public static AnimeService as;
 	public static UserService us;
 	public static LoginService ls;
 	
@@ -38,7 +40,7 @@ class BackEndApplicationTests {
 		super();
 		this.us = us;
 		this.ls = ls;
-		//this.as = as;
+		this.as = as;
 	}
 	
 	//variables and objects to use within tests
@@ -130,38 +132,38 @@ class BackEndApplicationTests {
 	}
 	
 	//Now, let's test the select/get methods -----------------------------
-	
-//	@Test
-//	public void testGetAllAnimes() {
-//		
-//		List<Anime> aList = as.getAllAnimes();
-//		
-//		assertNotNull(aList);
-//		
-//	}
-//	
-//	@Test
-//	public void testGetAnimeById() {
-//		
-//		id = 1; //this should give us Cowboy Bebop
-//		
-//		a = as.getAnimeById(id);
-//		
-//		assertNotNull(a);
-//		
-//	}
-//	
-//	@Test
-//	public void testGetAnimeByWrongId() {
-//		
-//		id = 2; //strangely, the id of 2 does not correlate to any Anime
-//		
-//		a = as.getAnimeById(id);
-//		
-//		assertNull(a);
-//		
-//	}
-//	
+
+	@Test
+	public void testGetAllAnimes() {
+
+		List<Anime> aList = as.getAllAnimes();
+
+		assertNotNull(aList);
+
+	}
+
+	@Test
+	public void testGetAnimeById() {
+
+		id = 1; // this should give us Cowboy Bebop
+
+		Optional<Anime> oa = as.getAnimeById(id);
+
+		assertNotNull(oa);
+
+	}
+
+	@Test
+	public void testGetAnimeByWrongId() {
+
+		id = 2; // strangely, the id of 2 does not correlate to any Anime
+
+		Optional<Anime> oa = as.getAnimeById(id);
+
+		assertNull(oa);
+
+	}
+
 //	@Test
 //	public void testGetRandomAnime() {
 //		
@@ -173,18 +175,18 @@ class BackEndApplicationTests {
 //		
 //	}
 //	
-//	//Now for the UserService method
-//	
-//	@Test
-//	public void testAddUser() {
-//		
-//		result = us.addUser(u);
-//		
-//		assertTrue(result);
-//	}
-//	
-//	//Other Add methods:
-//	
+	//Now for the UserService method
+	
+	@Test
+	public void testAddUser() {
+		
+		result = us.addUser(u);
+		
+		assertTrue(result);
+	}
+	
+	//Other Add methods:
+	
 //	@Test
 //	public void testAddGenre() {
 //		
