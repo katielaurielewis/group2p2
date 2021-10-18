@@ -2,6 +2,7 @@ package com.revature;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -22,7 +23,9 @@ import com.revature.models.User;
 import com.revature.models.UserAnime;
 import com.revature.models.WatchStatus;
 import com.revature.services.AnimeService;
+import com.revature.services.GenreService;
 import com.revature.services.LoginService;
+import com.revature.services.UserAnimeService;
 import com.revature.services.UserService;
 
 @SpringBootTest
@@ -32,13 +35,17 @@ class BackEndApplicationTests {
 	public AnimeService as;
 	public UserService us;
 	public LoginService ls;
+	public GenreService gs;
+	public UserAnimeService uas;
 
 	@Autowired
-	public BackEndApplicationTests(UserService us, LoginService ls, AnimeService as) {
+	public BackEndApplicationTests(UserService us, LoginService ls, AnimeService as, GenreService gs, UserAnimeService uas) {
 		super();
 		this.us = us;
 		this.ls = ls;
 		this.as = as;
+		this.gs = gs;
+		this.uas = uas;
 	}
 
 	// variables and objects to use within tests
@@ -173,65 +180,50 @@ class BackEndApplicationTests {
 		assertTrue(result);
 	}
 
-	// Other Add methods:
+	// Other Add methods: ----------------------------------------------------
+	
+	//Since we are now using Spring JPA to simplify the DAO layer, these two 
+	//tests should honestly suffice for every other add method
 
-//	@Test
-//	public void testAddGenre() {
-//		
-//		result = as.addGenre(g);
-//		
-//		assertTrue(result);
-//	}
-//
-//	@Test
-//	public void testAddStudio() {
-//
-//		result = as.addStudio(s);
-//		
-//		assertTrue(result);
-//	}
-//	
-//	@Test
-//	public void testAddWatchStatus() {
-//		
-//		result = as.addWatchStatus(ws);
-//		
-//		assertTrue(result);
-//	}
-//	
-//	@Test
-//	public void testAddAnime() {
-//		
-//		result = as.addAnime(a);
-//		
-//		assertTrue(result);
-//		
-//	}
-//	
-//	@Test
-//	public void testAddUserAnime() {
-//		
-//		result = as.addUserAnime(uAnime);
-//		
-//		assertTrue(result);
-//	}
-//	
-//	@Test
-//	public void testAddReview() {
-//
-//		result = as.addReview(r);
-//		assertTrue(result);
-//	}
-//	
-//	@Test
-//	public void testUpdateStatus() {
-//		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
-//		uAnime.setWatchStatus(ws2);
-//		
-//		result = as.updateAnimeWatchStatus(uAnime);
-//		
-//		assertTrue(result);
-//	}
+	//I've decided to go with adding a Genre, since it is simple and easy
+	@Test
+	public void testAddGenre() {
+		
+		Genre savedGenre = gs.save(g);
+		//If this gets persisted to the DB, this will return the saved object
+		
+		assertTrue(savedGenre.equals(g));
+		//Test passes if database record is equal to our Java object
+	}
+	
+	@Test
+	public void testAddNull() {
+		//you are not able to pass in a null object to the database
+		//so, it works as a great negative test
+		
+		Genre nullGenre = null;
+		
+		assertThrows(IllegalArgumentException.class, () -> gs.save(nullGenre));
+		
+		//Test passes if the method throws an exception
+	}
+
+
+	@Test
+	public void testUpdateStatus() {
+		
+		//add initial useranime
+		uas.save(uAnime);
+		
+		//Change the UserAnime's watch status
+		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
+		uAnime.setWatchStatus(ws2);
+		
+		UserAnime uAnime2 = uas.save(uAnime);
+		
+		assertTrue(uAnime2.equals(uAnime));
+		//Test passes if the new record is equal to our object
+	}
 
 	
 }
