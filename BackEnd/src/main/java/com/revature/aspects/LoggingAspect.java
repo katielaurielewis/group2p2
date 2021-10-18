@@ -26,9 +26,9 @@ public class LoggingAspect {
 	}
 	
 	//Update method is especially important, so we'll log that another time
-	@AfterReturning(pointcut="execution(boolean updateAnimeWatchStatus(..))", returning= "returnedBoolean")
-	public void logUpdateWatchStatus(JoinPoint jp, Boolean returnedBoolean) {
-		if(returnedBoolean) { //if it returns true
+	@AfterReturning(pointcut="execution(* com.revature.daos.UserAnimeDao.save(..))", returning= "returnedObject")
+	public void logUpdateWatchStatus(JoinPoint jp, Object returnedObject) {
+		if(returnedObject != null) { //if it returns an object
 			log.warn(jp.getTarget() + " sucessfully changed a record in the Database");
 		}
 	}
@@ -67,7 +67,7 @@ public class LoggingAspect {
 	}
 	
 	//Main one I would especially like to log is the update method
-	@Before("execution(boolean updateAnimeWatchStatus(..))")
+	@Before("execution(* com.revature.services.UserAnimeService.save(..))")
 	public void logServiceUpdateStatus(JoinPoint jp) {
 		log.info(jp.getTarget() + " is attempting to change a user's watch status");
 	}
