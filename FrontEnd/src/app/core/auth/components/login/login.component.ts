@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CredentialsService } from 'src/app/credentials.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,8 @@ import { CredentialsService } from 'src/app/credentials.service';
 })
 export class LoginComponent implements OnInit {
 
+  user!: User;
+  
   endpoint: string = "http://localhost:8090/login"
   public loginForm!: FormGroup;
   constructor(private formBuilder: FormBuilder, private http : HttpClient, private router : Router, private credentialsService: CredentialsService) { }
