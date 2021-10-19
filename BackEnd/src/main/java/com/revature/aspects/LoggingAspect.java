@@ -26,7 +26,7 @@ public class LoggingAspect {
 	}
 	
 	//Update method is especially important, so we'll log that another time
-	@AfterReturning(pointcut="execution(* com.revature.daos.UserAnimeDao.save(..))", returning= "returnedObject")
+	@AfterReturning(pointcut="execution(* com.revature.daos.UserAnimeDAO.save(..))", returning= "returnedObject")
 	public void logUpdateWatchStatus(JoinPoint jp, Object returnedObject) {
 		if(returnedObject != null) { //if it returns an object
 			log.warn(jp.getTarget() + " sucessfully changed a record in the Database");
