@@ -25,6 +25,7 @@ public class BackEndApplication {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.csrf().disable()
+				.cors().and()
 				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
 				.antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
@@ -34,5 +35,4 @@ public class BackEndApplication {
 		//that is unless we send in a JWT to the response body using that controller
 		//so uh.. be careful when testing
 	}
-
 }

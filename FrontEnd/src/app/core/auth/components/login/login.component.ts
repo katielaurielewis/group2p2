@@ -11,7 +11,7 @@ import { CredentialsService } from 'src/app/credentials.service';
 })
 export class LoginComponent implements OnInit {
 
-  endpoint: string = "http://localhost:8090/login"
+  endpoint: string = "http://localhost:8090/anilib/login"
   public loginForm!: FormGroup;
   constructor(private formBuilder: FormBuilder, private http : HttpClient, private router : Router, private credentialsService: CredentialsService) { }
 
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.http.post<any>(this.endpoint, this.loginForm)
+    this.http.post<any>(this.endpoint, this.loginForm.getRawValue())
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.access_token)
         this.credentialsService.setUsername(this.loginForm.get('username')!.value);
