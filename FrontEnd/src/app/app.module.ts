@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule, ROUTES } from '@angular/router';
+import { Routes } from '@angular/router';
+
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +23,7 @@ import { AuthInterceptor } from './core/auth/services/auth.interceptor';
     NavbarComponent,
     RecommenderComponent,
     LibraryComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
   ],
 
   imports: [
@@ -27,7 +31,9 @@ import { AuthInterceptor } from './core/auth/services/auth.interceptor';
     AppRoutingModule,
     FormsModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    CarouselModule
   ],
   
   providers: [
