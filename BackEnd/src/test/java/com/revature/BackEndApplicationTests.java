@@ -75,15 +75,15 @@ class BackEndApplicationTests {
 		u.setfName("Tess");
 		u.setlName("Tear");
 
-		g.setId(200);
+		g.setId(401);
 		g.setName("Unit Testing"); // just some random test genre that hopefully won't conflict
 
-		s.setId(400);
+		s.setId(401);
 		s.setName("Testimation");
 
 		ws.setStatus("Just Testing");
 
-		a.setId(30000);
+		a.setId(30001);
 		a.setRating("T");
 		a.setScore(3.14);
 //		List<Studio> slist = new ArrayList<>();

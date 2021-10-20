@@ -23,5 +23,10 @@ public class StudioService {
 	public Optional<List<Studio>> findByName(String name){
 		return sDao.findByName(name);
 	}
+
+	public Studio save(Studio s) {
+		return sDao.save(s);
+		
+	}
 	
 }
