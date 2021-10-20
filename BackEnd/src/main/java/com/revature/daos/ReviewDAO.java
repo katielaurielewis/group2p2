@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.models.Anime;
 import com.revature.models.Review;
+import com.revature.models.User;
 
 @Repository
 public interface ReviewDAO extends JpaRepository<Review, Integer> {
@@ -15,5 +16,6 @@ public interface ReviewDAO extends JpaRepository<Review, Integer> {
 
 	public Optional<List<Review>> findByAnime(Anime anime);
 
+	public Optional<List<Review>> findByUser(User user);
 	
 }
