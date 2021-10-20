@@ -18,14 +18,14 @@ public class UserService {
 		this.uDao = uDao;
 	}
 	
-	public boolean addUser (User u) {
+	public User addUser (User u) {
 		
 		if(u == null) {
-			return false;
+			return null;
 		}
-		uDao.save(u);
+		User returnedUser = uDao.save(u);
 		
-		return true;
+		return returnedUser;
 	}
 	
 }

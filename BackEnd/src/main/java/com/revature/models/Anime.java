@@ -37,11 +37,13 @@ public class Anime {
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Genre.class)
 	@JoinColumn(name = "genre_id")
-	private List<Genre> themes;
+	private Genre themes;
+	//private List<Genre> themes;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Studio.class)
 	@JoinColumn(name = "studio_id")
-	private List<Studio> studios;
+	private Studio studios;
+	//private List<Studio> studios;
 	
 	@OneToMany(mappedBy = "anime", fetch = FetchType.EAGER)
 	private List<UserAnime> userAnimes;
@@ -55,8 +57,8 @@ public class Anime {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Anime(int id, String title, String rating, double score, String synopsis, List<Genre> themes,
-			List<Studio> studios, List<UserAnime> userAnimes) {
+	public Anime(int id, String title, String rating, double score, String synopsis, Genre themes,
+			Studio studios, List<UserAnime> userAnimes) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -68,7 +70,7 @@ public class Anime {
 		this.userAnimes = userAnimes;
 	}
 	
-	public Anime(String title, String rating, double score, String synopsis, List<Genre> themes, List<Studio> studios,
+	public Anime(String title, String rating, double score, String synopsis, Genre themes, Studio studios,
 			List<UserAnime> userAnimes) {
 		super();
 		this.title = title;
@@ -189,19 +191,19 @@ public class Anime {
 		this.synopsis = synopsis;
 	}
 
-	public List<Genre> getThemes() {
+	public Genre getThemes() {
 		return themes;
 	}
 
-	public void setThemes(List<Genre> themes) {
+	public void setThemes(Genre themes) {
 		this.themes = themes;
 	}
 
-	public List<Studio> getStudios() {
+	public Studio getStudios() {
 		return studios;
 	}
 
-	public void setStudios(List<Studio> studios) {
+	public void setStudios(Studio studios) {
 		this.studios = studios;
 	}
 

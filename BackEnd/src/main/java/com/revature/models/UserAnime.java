@@ -26,7 +26,7 @@ public class UserAnime {
 	@Column(name = "user_anime_id")
 	private int id;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "user_id")
 	private User user;
 	

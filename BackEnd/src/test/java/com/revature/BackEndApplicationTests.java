@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 
 import com.revature.models.Anime;
 import com.revature.models.Genre;
@@ -24,6 +25,7 @@ import com.revature.models.WatchStatus;
 import com.revature.services.AnimeService;
 import com.revature.services.GenreService;
 import com.revature.services.LoginService;
+import com.revature.services.StudioService;
 import com.revature.services.UserAnimeService;
 import com.revature.services.UserService;
 
@@ -36,15 +38,17 @@ class BackEndApplicationTests {
 	public LoginService ls;
 	public GenreService gs;
 	public UserAnimeService uas;
+	public StudioService ss;
 
 	@Autowired
-	public BackEndApplicationTests(UserService us, LoginService ls, AnimeService as, GenreService gs, UserAnimeService uas) {
+	public BackEndApplicationTests(UserService us, LoginService ls, AnimeService as, GenreService gs, UserAnimeService uas, StudioService ss) {
 		super();
 		this.us = us;
 		this.ls = ls;
 		this.as = as;
 		this.gs = gs;
 		this.uas = uas;
+		this.ss = ss;
 	}
 
 	// variables and objects to use within tests
@@ -82,12 +86,12 @@ class BackEndApplicationTests {
 		a.setId(30000);
 		a.setRating("T");
 		a.setScore(3.14);
-		List<Studio> slist = new ArrayList<>();
-		slist.add(s);
-		a.setStudios(slist);
-		List<Genre> glist = new ArrayList<>();
-		glist.add(g);
-		a.setThemes(glist);
+//		List<Studio> slist = new ArrayList<>();
+//		slist.add(s);
+		a.setStudios(s);
+//		List<Genre> glist = new ArrayList<>();
+//		glist.add(g);
+		a.setThemes(g);
 		a.setTitle("TokyoTest!!!");
 		a.setSynopsis("I just want to test this method");
 
@@ -174,9 +178,9 @@ class BackEndApplicationTests {
 	@Test
 	public void testAddUser() {
 
-		result = us.addUser(u);
+		u = us.addUser(u);
 
-		assertTrue(result);
+		assertTrue(u !=null);
 	}
 
 	// Other Add methods: ----------------------------------------------------
@@ -202,7 +206,7 @@ class BackEndApplicationTests {
 		
 		Genre nullGenre = null;
 		
-		assertThrows(IllegalArgumentException.class, () -> gs.save(nullGenre));
+		assertThrows(InvalidDataAccessApiUsageException.class, () -> gs.save(nullGenre));
 		
 		//Test passes if the method throws an exception
 	}
@@ -211,12 +215,16 @@ class BackEndApplicationTests {
 	@Test
 	public void testUpdateStatus() {
 		
+		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
+		
+//		gs.save(g);
+//		ss.save(s);
+		uAnime.getUser().setId(u.getId());
 		//add initial useranime
 		uAnime = uas.save(uAnime); //this way we get back the id
 		//that will be needed if we want to update it instead of delete it
 		
 		//Change the UserAnime's watch status
-		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
 		uAnime.setWatchStatus(ws2);
 		
 		UserAnime uAnime2 = uas.save(uAnime);
