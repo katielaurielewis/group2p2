@@ -12,9 +12,6 @@ import com.revature.models.UserAnime;
 @Repository
 public interface UserAnimeDAO extends JpaRepository<UserAnime, Integer> {
 
-
-	
 	public Optional<List<UserAnime>> findByUser(User user);
-
-
+	
 }
