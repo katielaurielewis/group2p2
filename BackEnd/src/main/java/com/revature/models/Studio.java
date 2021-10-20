@@ -19,7 +19,6 @@ import org.springframework.stereotype.Component;
 public class Studio {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "studio_id")
 	private int id;
 	
