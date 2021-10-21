@@ -1,9 +1,11 @@
 package com.revature.controllers;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,12 +13,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
-
+import com.revature.models.APIGenre;
 import com.revature.models.Anime;
+import com.revature.models.Genre;
+import com.revature.models.User;
+import com.revature.models.UserAnime;
 import com.revature.services.AnimeService;
+import com.revature.services.GenreService;
+import com.revature.services.UserService;
 
 
 @RestController
@@ -26,12 +33,24 @@ public class AnimeController {
 	
 
 	private AnimeService aService;
+	private GenreService gService;
+	private UserService uService;
 	
 	@Autowired
-	public AnimeController(AnimeService aService) {
+	public AnimeController(AnimeService aService, GenreService gService, UserService uService) {
 		super();
 		this.aService = aService;
+		this.gService = gService;
+		this.uService = uService;
 	}
+	
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
+	
+	@Autowired
+	private RestTemplate restTemplate;
 	
 	@GetMapping
 	public ResponseEntity<List<Anime>> getAllAnime(){
@@ -76,6 +95,31 @@ public class AnimeController {
 	public ResponseEntity<Anime> findByImage(@PathVariable String url){
 		Anime a = aService.findByImage(url).get();
 		return ResponseEntity.ok(a);
+	}
+	
+	@GetMapping(value = "/recommend/{userId}/{genre}")
+	public ResponseEntity<Anime> recommendAnime(@PathVariable int userId, @PathVariable String genre){
+		Genre g = gService.findByName(genre).get();
+		
+		APIGenre apig = this.restTemplate.getForObject("https://api.jikan.moe/v3/genre/anime/" + g.getId(), APIGenre.class);
+		
+		List<Anime> aList = apig.getAnime();
+		
+		User u = uService.findById(userId);
+		List<UserAnime> uLibrary = u.getLibrary();
+		
+		for(Anime a : aList) {
+			for(UserAnime uAnime : uLibrary) {
+				if(a.getId() == uAnime.getAnime().getId()) {
+					aList.remove(a);
+					break;
+				}
+			}
+		}
+		
+		int r = (int) Math.random()*(aList.size()+1);
+		
+		return ResponseEntity.ok(aList.get(r));
 	}
 
 }

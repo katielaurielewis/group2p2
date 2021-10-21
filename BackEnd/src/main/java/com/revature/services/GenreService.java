@@ -21,7 +21,7 @@ public class GenreService {
 	}
 
 
-	public Optional<List<Genre>> findByName(String name){
+	public Optional<Genre> findByName(String name){
 		return gDao.findByName(name);
 	}
 
