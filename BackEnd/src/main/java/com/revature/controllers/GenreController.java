@@ -1,9 +1,9 @@
 package com.revature.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,21 +28,19 @@ public class GenreController {
 	}
 
 	@GetMapping(value = "/name/{name}")  
-	public ResponseEntity<List<Genre>> findByName(@PathVariable String name) {
+	public ResponseEntity<Genre> findByName(@PathVariable String name) {
 
 
 
-		Optional<List<Genre>> opt = gService.findByName(name);
+		Optional<Genre> opt = gService.findByName(name);
 
-
-		List<Genre> genreList = null;
 
 		if(opt.isPresent()) { 
-			genreList = opt.get(); 
+			Genre genre = opt.get(); 
+			return ResponseEntity.ok(genre);
 		}
-
-		return ResponseEntity.ok(genreList);
-
+		
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 
 }
