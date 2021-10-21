@@ -12,5 +12,6 @@ import com.revature.models.Anime;
 public interface AnimeDAO extends JpaRepository<Anime, Integer> {
 	
 	public Optional<List<Anime>> findByTitle(String title);
+	public Optional<Anime> findByImage(String image);
 	
 }

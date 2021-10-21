@@ -23,6 +23,10 @@ public class AnimeService {
 		return aDAO.findByTitle(title);
 	}
 	
+	public Optional<Anime> findByImage(String image){
+		return aDAO.findByImage(image);
+	}
+	
 	public Optional<Anime> findById(int id){
 		return aDAO.findById(id);
 	}

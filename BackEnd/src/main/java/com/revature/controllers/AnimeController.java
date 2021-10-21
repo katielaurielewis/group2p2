@@ -71,6 +71,12 @@ public class AnimeController {
 		return ResponseEntity.ok(animeList);
 		
 	}
+	
+	@GetMapping(value = "/url/{url}")
+	public ResponseEntity<Anime> findByImage(@PathVariable String url){
+		Anime a = aService.findByImage(url).get();
+		return ResponseEntity.ok(a);
+	}
 
 }
 
