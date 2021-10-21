@@ -79,4 +79,9 @@ public class LoggingAspect {
 		log.info(jp.getTarget() + " invoked " + jp.getSignature());
 	}
 	
+	//Same for the Controller Layer -------------------------------------
+	@Before("within(com.revature.controllers.*)")
+	public void logControllerMethods(JoinPoint jp){
+		log.info("A request was made to " + jp.getSourceLocation() + " invoking " + jp.getSignature());
+	}
 }
