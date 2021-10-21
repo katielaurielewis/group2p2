@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, ROUTES } from '@angular/router';
 import { Routes } from '@angular/router';
 
-import { CarouselModule } from 'ngx-owl-carousel-o';
+/*import { CarouselModule } from 'ngx-owl-carousel-o';*/
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,8 +32,8 @@ import { AuthInterceptor } from './core/auth/services/auth.interceptor';
     FormsModule,
     CoreModule,
     HttpClientModule,
-    RouterModule,
-    CarouselModule
+    RouterModule/*,
+    CarouselModule*/
   ],
   
   providers: [

@@ -1,13 +1,9 @@
 package com.revature.services;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.daos.UserDAO;
-
 import com.revature.models.User;
 
 //I just wanted to put the User services into its own class
@@ -32,11 +28,4 @@ public class UserService {
 		return returnedUser;
 	}
 	
-	public User findByUsername(String username) {
-		return uDao.findByUsername(username);
-	}
-	
-	public User findById(int id){
-		return uDao.findById(id).get();
-	}
 }
