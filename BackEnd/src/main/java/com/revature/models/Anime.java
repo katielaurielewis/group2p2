@@ -35,6 +35,9 @@ public class Anime {
 	@Column
 	private String synopsis;
 	
+	@Column(name = "image_url")
+	private String image;
+	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE, targetEntity = Genre.class)
 	@JoinColumn(name = "genre_id")
 	private Genre themes;
@@ -57,7 +60,7 @@ public class Anime {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Anime(int id, String title, String rating, double score, String synopsis, Genre themes,
+	public Anime(int id, String title, String rating, double score, String synopsis, String image, Genre themes,
 			Studio studios, List<UserAnime> userAnimes) {
 		super();
 		this.id = id;
@@ -65,34 +68,38 @@ public class Anime {
 		this.rating = rating;
 		this.score = score;
 		this.synopsis = synopsis;
+		this.image = image;
 		this.themes = themes;
 		this.studios = studios;
 		this.userAnimes = userAnimes;
 	}
 	
-	public Anime(String title, String rating, double score, String synopsis, Genre themes, Studio studios,
+	public Anime(String title, String rating, double score, String synopsis, String image, Genre themes, Studio studios,
 			List<UserAnime> userAnimes) {
 		super();
 		this.title = title;
 		this.rating = rating;
 		this.score = score;
 		this.synopsis = synopsis;
+		this.image = image;
 		this.themes = themes;
 		this.studios = studios;
 		this.userAnimes = userAnimes;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Anime [id=" + id + ", title=" + title + ", rating=" + rating + ", score=" + score + ", synopsis="
-				+ synopsis + ", themes=" + themes + ", studios=" + studios + ", userAnimes=" + userAnimes + "]";
+				+ synopsis + ", image=" + image + ", themes=" + themes + ", studios=" + studios + ", userAnimes="
+				+ userAnimes + "]";
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
+		result = prime * result + ((image == null) ? 0 : image.hashCode());
 		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(score);
@@ -104,7 +111,7 @@ public class Anime {
 		result = prime * result + ((userAnimes == null) ? 0 : userAnimes.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -115,6 +122,11 @@ public class Anime {
 			return false;
 		Anime other = (Anime) obj;
 		if (id != other.id)
+			return false;
+		if (image == null) {
+			if (other.image != null)
+				return false;
+		} else if (!image.equals(other.image))
 			return false;
 		if (rating == null) {
 			if (other.rating != null)
@@ -150,67 +162,71 @@ public class Anime {
 			return false;
 		return true;
 	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
 	public String getRating() {
 		return rating;
 	}
-
+	
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-
+	
 	public double getScore() {
 		return score;
 	}
-
+	
 	public void setScore(double score) {
 		this.score = score;
 	}
-
+	
 	public String getSynopsis() {
 		return synopsis;
 	}
-
+	
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
-
+	
+	public String getImage() {
+		return image;
+	}
+	
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	public Genre getThemes() {
 		return themes;
 	}
-
+	
 	public void setThemes(Genre themes) {
 		this.themes = themes;
 	}
-
+	
 	public Studio getStudios() {
 		return studios;
 	}
-
+	
 	public void setStudios(Studio studios) {
 		this.studios = studios;
 	}
-
+	
 	public List<UserAnime> getUserAnimes() {
 		return userAnimes;
 	}
-
+	
 	public void setUserAnimes(List<UserAnime> userAnimes) {
 		this.userAnimes = userAnimes;
 	}
