@@ -29,7 +29,7 @@ public class Review {
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
-	private User user;
+	private User author;
 	
 	@Column(name = "stars")
 	private double starRating;
@@ -46,20 +46,20 @@ public class Review {
 	}
 
 
-	public Review(int id, Anime anime, User user, double starRating, String textReview) {
+	public Review(int id, Anime anime, User author, double starRating, String textReview) {
 		super();
 		this.id = id;
 		this.anime = anime;
-		this.user = user;
+		this.author = author;
 		this.starRating = starRating;
 		this.textReview = textReview;
 	}
 
 
-	public Review(Anime anime, User user, double starRating, String textReview) {
+	public Review(Anime anime, User author, double starRating, String textReview) {
 		super();
 		this.anime = anime;
-		this.user = user;
+		this.author = author;
 		this.starRating = starRating;
 		this.textReview = textReview;
 	}
@@ -67,7 +67,7 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", anime=" + anime + ", user=" + user + ", starRating=" + starRating
+		return "Review [id=" + id + ", anime=" + anime + ", author=" + author + ", starRating=" + starRating
 				+ ", textReview=" + textReview + "]";
 	}
 
@@ -77,7 +77,7 @@ public class Review {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((anime == null) ? 0 : anime.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + id;
 		long temp;
 		temp = Double.doubleToLongBits(starRating);
@@ -101,10 +101,10 @@ public class Review {
 				return false;
 		} else if (!anime.equals(other.anime))
 			return false;
-		if (user == null) {
-			if (other.user != null)
+		if (author == null) {
+			if (other.author != null)
 				return false;
-		} else if (!user.equals(other.user))
+		} else if (!author.equals(other.author))
 			return false;
 		if (id != other.id)
 			return false;
@@ -139,13 +139,13 @@ public class Review {
 	}
 
 
-	public User getuser() {
-		return user;
+	public User getAuthor() {
+		return author;
 	}
 
 
-	public void setuser(User user) {
-		this.user = user;
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 
 
