@@ -162,8 +162,8 @@ public class AnimeController {
 
 		while (itr.hasNext()) {
 			Anime a = (Anime) itr.next();
-			if (a.getRating() != rating) {
-				// Not the rating the user wants
+			if (a.getRating() != rating || a.getThemes().getId() != g.getId()) {
+				// Not the rating the user wants, or not the genre they want
 				itr.remove();
 			}
 		}
