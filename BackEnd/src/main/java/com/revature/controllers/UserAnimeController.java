@@ -49,7 +49,7 @@ public class UserAnimeController {
 		
 		Optional<List<UserAnime>> uAnimeList = uas.findByUser(u);
 		
-		if(uAnimeList.isEmpty()) {
+		if(!uAnimeList.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		}
 		
