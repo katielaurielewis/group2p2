@@ -31,13 +31,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    /*
     this.http.post<any>(this.endpoint, this.loginForm.getRawValue())
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.access_token)
         this.credentialsService.setUsername(this.loginForm.get('username')!.value);
         this.loginForm.reset();
+        this.router.navigate([`/library`]);
       }, err=>{
         alert("Something went wrong");
-      }) 
+      }) */
+      this.router.navigate([`/dashboard`]);
   }
 }

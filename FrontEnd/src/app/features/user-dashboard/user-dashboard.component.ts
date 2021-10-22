@@ -15,5 +15,4 @@ export class UserDashboardComponent implements OnInit {
 
   username = this.credentialsService.getUsername();
   friend = "";
-
 }
