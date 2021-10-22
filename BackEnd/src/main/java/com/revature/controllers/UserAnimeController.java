@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ import com.revature.models.Anime;
 import com.revature.models.User;
 import com.revature.models.UserAnime;
 import com.revature.services.UserAnimeService;
+import com.revature.services.WatchStatusService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200", allowCredentials ="true")
@@ -26,11 +28,13 @@ public class UserAnimeController {
 
 	private UserAnimeService uas;
 	private AnimeDAO aDao;
+	private WatchStatusService ws;
 	
 	@Autowired
-	public UserAnimeController(UserAnimeService uas, AnimeDAO aDao) {
+	public UserAnimeController(UserAnimeService uas, AnimeDAO aDao, WatchStatusService ws) {
 		this.uas = uas;
 		this.aDao = aDao;
+		this.ws = ws;
 	}
 	
 	
@@ -55,6 +59,19 @@ public class UserAnimeController {
 			aList.add(aDao.getById(uAnime.getAnime().getId()));
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(aList);
+	}
+	
+	@PostMapping
+	public ResponseEntity addLibraryEntity(@RequestBody UserAnime uAnime) {
+		//This method is to be able to add a new anime to their library
+		
+		if(uAnime.getWatchStatus() == null) {
+			uAnime.setWatchStatus(ws.getById(1)); //sets to not watched, if they do not already claim it as watched
+		}
+		
+		uas.save(uAnime);
+		
+		return ResponseEntity.ok().build();
 	}
 	
 }
