@@ -30,5 +30,8 @@ public class ReviewService {
 		return rDao.findByUser(user);
 	}
 
+	public void save(Review review) {
+		rDao.save(review);
+	}
 
 }
