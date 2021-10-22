@@ -8,10 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.models.User;
 import com.revature.models.UserAnime;
+import com.revature.models.WatchStatus;
 
 @Repository
 public interface UserAnimeDAO extends JpaRepository<UserAnime, Integer> {
 
 	public Optional<List<UserAnime>> findByUser(User user);
+	
+	public Optional<List<UserAnime>> findByWatchStatus(WatchStatus watchStatus);
 	
 }

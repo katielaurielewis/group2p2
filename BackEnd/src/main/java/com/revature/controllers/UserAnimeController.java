@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import com.revature.daos.AnimeDAO;
 import com.revature.models.Anime;
 import com.revature.models.User;
 import com.revature.models.UserAnime;
+import com.revature.models.WatchStatus;
 import com.revature.services.UserAnimeService;
 import com.revature.services.WatchStatusService;
 
@@ -59,6 +61,31 @@ public class UserAnimeController {
 			aList.add(aDao.getById(uAnime.getAnime().getId()));
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(aList);
+	}
+	
+	@GetMapping(value = "/status/{statusId}")
+	public ResponseEntity<List<Anime>> findAllAnimeByWatchStatus(@RequestBody User u, @PathVariable int statusId){
+		
+		if(u == null) {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		}
+		
+		Optional<List<UserAnime>> uAnimeList = uas.findByUser(u);
+		
+		if(!uAnimeList.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		}
+		
+		List<Anime> aList = new ArrayList<>();
+		
+		for(UserAnime uAnime : uAnimeList.get()) {
+			if(uAnime.getWatchStatus().getId() == statusId) { //if it is of correct status
+				aList.add(aDao.getById(uAnime.getAnime().getId()));
+			}
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(aList);
+		
 	}
 	
 	@PostMapping
