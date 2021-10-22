@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +27,7 @@ import com.revature.services.LoginService;
 import com.revature.services.StudioService;
 import com.revature.services.UserAnimeService;
 import com.revature.services.UserService;
+import com.revature.services.WatchStatusService;
 
 @SpringBootTest
 class BackEndApplicationTests {
@@ -39,9 +39,10 @@ class BackEndApplicationTests {
 	public GenreService gs;
 	public UserAnimeService uas;
 	public StudioService ss;
+	public WatchStatusService wss;
 
 	@Autowired
-	public BackEndApplicationTests(UserService us, LoginService ls, AnimeService as, GenreService gs, UserAnimeService uas, StudioService ss) {
+	public BackEndApplicationTests(UserService us, LoginService ls, AnimeService as, GenreService gs, UserAnimeService uas, StudioService ss, WatchStatusService wss) {
 		super();
 		this.us = us;
 		this.ls = ls;
@@ -49,6 +50,7 @@ class BackEndApplicationTests {
 		this.gs = gs;
 		this.uas = uas;
 		this.ss = ss;
+		this.wss = wss;
 	}
 
 	// variables and objects to use within tests
@@ -81,7 +83,8 @@ class BackEndApplicationTests {
 		s.setId(401);
 		s.setName("Testimation");
 
-		ws.setStatus("Just Testing");
+		ws.setId(3);
+		ws.setStatus("Testing");
 
 		a.setId(30001);
 		a.setRating("T");
@@ -215,8 +218,6 @@ class BackEndApplicationTests {
 	@Test
 	public void testUpdateStatus() {
 		
-		WatchStatus ws2 = new WatchStatus(4, "Testing Differently");
-		
 //		gs.save(g);
 //		ss.save(s);
 		uAnime.getUser().setId(u.getId());
@@ -225,11 +226,12 @@ class BackEndApplicationTests {
 		//that will be needed if we want to update it instead of delete it
 		
 		//Change the UserAnime's watch status
-		uAnime.setWatchStatus(ws2);
+		uAnime.setWatchStatus(wss.getById(2));
 		
 		UserAnime uAnime2 = uas.save(uAnime);
 		
-		assertTrue(uAnime2.equals(uAnime));
+		assertTrue(uAnime2.getWatchStatus().getId() == 2);
+		//assertTrue(false);
 		//Test passes if the new record is equal to our object
 	}
 

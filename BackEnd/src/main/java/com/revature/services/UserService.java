@@ -28,4 +28,12 @@ public class UserService {
 		return returnedUser;
 	}
 	
+	public User findByUsername(String username) {
+		return uDao.findByUsername(username);
+	}
+
+	public User findById(int id){
+		return uDao.findById(id).get();
+	}
+	
 }

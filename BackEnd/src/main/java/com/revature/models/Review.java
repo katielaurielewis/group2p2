@@ -29,7 +29,7 @@ public class Review {
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
-	private User author;
+	private User user;
 	
 	@Column(name = "stars")
 	private double starRating;
@@ -46,20 +46,20 @@ public class Review {
 	}
 
 
-	public Review(int id, Anime anime, User author, double starRating, String textReview) {
+	public Review(int id, Anime anime, User user, double starRating, String textReview) {
 		super();
 		this.id = id;
 		this.anime = anime;
-		this.author = author;
+		this.user = user;
 		this.starRating = starRating;
 		this.textReview = textReview;
 	}
 
 
-	public Review(Anime anime, User author, double starRating, String textReview) {
+	public Review(Anime anime, User user, double starRating, String textReview) {
 		super();
 		this.anime = anime;
-		this.author = author;
+		this.user = user;
 		this.starRating = starRating;
 		this.textReview = textReview;
 	}
@@ -67,7 +67,7 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", anime=" + anime + ", author=" + author + ", starRating=" + starRating
+		return "Review [id=" + id + ", anime=" + anime + ", user=" + user + ", starRating=" + starRating
 				+ ", textReview=" + textReview + "]";
 	}
 
@@ -77,12 +77,12 @@ public class Review {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((anime == null) ? 0 : anime.hashCode());
-		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + id;
 		long temp;
 		temp = Double.doubleToLongBits(starRating);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((textReview == null) ? 0 : textReview.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -101,11 +101,6 @@ public class Review {
 				return false;
 		} else if (!anime.equals(other.anime))
 			return false;
-		if (author == null) {
-			if (other.author != null)
-				return false;
-		} else if (!author.equals(other.author))
-			return false;
 		if (id != other.id)
 			return false;
 		if (Double.doubleToLongBits(starRating) != Double.doubleToLongBits(other.starRating))
@@ -114,6 +109,11 @@ public class Review {
 			if (other.textReview != null)
 				return false;
 		} else if (!textReview.equals(other.textReview))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
@@ -139,13 +139,13 @@ public class Review {
 	}
 
 
-	public User getAuthor() {
-		return author;
+	public User getUser() {
+		return user;
 	}
 
 
-	public void setAuthor(User author) {
-		this.author = author;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 
@@ -167,6 +167,9 @@ public class Review {
 	public void setTextReview(String textReview) {
 		this.textReview = textReview;
 	}
+
+
+	
 	
 	
 }

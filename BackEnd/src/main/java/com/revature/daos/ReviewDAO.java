@@ -14,8 +14,8 @@ import com.revature.models.User;
 public interface ReviewDAO extends JpaRepository<Review, Integer> {
 	
 
-	public Optional<List<Review>> findByAnime(Anime anime);
+	public Optional<List<Review>> findByAnime(Optional<Anime> anime);
 
-	public Optional<List<Review>> findByAuthor(User user);
+	public Optional<List<Review>> findByUser(User user);
 	
 }
