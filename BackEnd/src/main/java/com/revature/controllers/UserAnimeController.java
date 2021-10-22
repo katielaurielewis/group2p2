@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.daos.AnimeDAO;
 import com.revature.models.Anime;
 import com.revature.models.User;
 import com.revature.models.UserAnime;
-import com.revature.models.WatchStatus;
+import com.revature.services.AnimeService;
 import com.revature.services.UserAnimeService;
+import com.revature.services.UserService;
 import com.revature.services.WatchStatusService;
 
 @RestController
@@ -29,21 +29,25 @@ import com.revature.services.WatchStatusService;
 public class UserAnimeController {
 
 	private UserAnimeService uas;
-	private AnimeDAO aDao;
+	private AnimeService as;
+	private UserService us;
 	private WatchStatusService ws;
 	
 	@Autowired
-	public UserAnimeController(UserAnimeService uas, AnimeDAO aDao, WatchStatusService ws) {
+	public UserAnimeController(UserAnimeService uas, AnimeService as, UserService us, WatchStatusService ws) {
 		this.uas = uas;
-		this.aDao = aDao;
+		this.as = as;
+		this.us = us;
 		this.ws = ws;
 	}
 	
 	
 	//I'm putting this here right now, we can move it later but I think that right now this is the easiest way to show it without causing error
 	//Could also possibly do this in either the Anime or User Controller to get a specific user from the DB, then get their library from the model
-	@GetMapping
-	public ResponseEntity<List<Anime>> findUserLibrary(@RequestBody User u){
+	@GetMapping(value = "/user/{userId}")
+	public ResponseEntity<List<Anime>> findUserLibrary(@PathVariable int userId){
+		
+		User u = us.findById(userId);
 		
 		if(u == null) {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -58,13 +62,15 @@ public class UserAnimeController {
 		List<Anime> aList = new ArrayList<>();
 		
 		for(UserAnime uAnime : uAnimeList.get()) {
-			aList.add(aDao.getById(uAnime.getAnime().getId()));
+			aList.add(as.findById(uAnime.getAnime().getId()).get());
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(aList);
 	}
 	
-	@GetMapping(value = "/status/{statusId}")
-	public ResponseEntity<List<Anime>> findAllAnimeByWatchStatus(@RequestBody User u, @PathVariable int statusId){
+	@GetMapping(value = "/user/{userId}/status/{statusId}")
+	public ResponseEntity<List<Anime>> findAllAnimeByWatchStatus(@PathVariable int userId, @PathVariable int statusId){
+		
+		User u = us.findById(userId);
 		
 		if(u == null) {
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -80,7 +86,7 @@ public class UserAnimeController {
 		
 		for(UserAnime uAnime : uAnimeList.get()) {
 			if(uAnime.getWatchStatus().getId() == statusId) { //if it is of correct status
-				aList.add(aDao.getById(uAnime.getAnime().getId()));
+				aList.add(as.findById(uAnime.getAnime().getId()).get());
 			}
 		}
 		
