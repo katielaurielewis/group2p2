@@ -21,39 +21,43 @@ const httpOptions = {
 export class AuthService {
 
   url: string = "http://localhost:8090/anilib/"
+  tokenKey: string = 'access_token'
   constructor(
     private http: HttpClient,
     public router: Router,
   ) { }
 
-  register(user: User) {
-    return this.http.post<User>(this.url + "register", user)
+  register(user: User): Observable<User> {
+    return this.http.post<User>(this.url + "user/register", user, httpOptions)
       .pipe(
         catchError(this.handleError)
       )
   }
 
-  login(user : User){
-    return this.http.post<User>(this.url + "login", user)
-      .subscribe((res : any) => {
-        localStorage.setItem('access_token', res.token)
-      }) 
+  login(credentials: string) {
+    this.http.post<any>(this.url + "login", credentials)
+      .subscribe(async (res : any) => {
+        this.setToken(res.token)
+      })
+  }
+
+  async setToken(token: string) {
+    localStorage.setItem(this.tokenKey, token)
   }
 
   getToken(){
-    return localStorage.getItem("access_token")
+    return localStorage.getItem(this.tokenKey)
   }
 
   get IsLoggedIn(){
-    let authToken = localStorage.getItem('access_token');
-    return (authToken !== null) ? true : false;
+    let authToken = localStorage.getItem(this.tokenKey);
+    console.log(authToken);
+    return authToken !== null && authToken != 'undefined';
   }
 
   logout(){
-    let removeToken = localStorage.getItem('access_token');
-    if (removeToken == null) {
-      this.router.navigate(['login']);
-    }
+    localStorage.clear();
+    this.router.navigate(['login']);
   }
 
   handleError(error: HttpErrorResponse){

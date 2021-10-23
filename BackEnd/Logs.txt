@@ -5,3 +5,109 @@
 2021-10-22 14:12:19 INFO  BackEndApplication:61 - Started BackEndApplication in 36.556 seconds (JVM running for 40.715)
 2021-10-22 14:13:00 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@64dde64 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
 2021-10-22 14:13:01 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 15:49:30 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 15516 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 15:49:30 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 15:49:30 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 15:49:41 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 15648 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 15:49:41 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 15:49:41 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 15:50:06 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@27bd4d5e invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 15:50:08 INFO  BackEndApplication:61 - Started BackEndApplication in 27.734 seconds (JVM running for 31.825)
+2021-10-22 15:54:16 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 23896 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 15:54:16 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 15:54:16 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 15:54:35 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@77812b0a invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 15:54:37 INFO  BackEndApplication:61 - Started BackEndApplication in 22.132 seconds (JVM running for 25.509)
+2021-10-22 15:56:26 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 23896 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 15:56:26 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 15:56:26 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 15:56:39 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@7bb2ca0c invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 15:56:40 INFO  BackEndApplication:61 - Started BackEndApplication in 14.175 seconds (JVM running for 148.469)
+2021-10-22 15:58:51 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 23896 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 15:58:51 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 15:58:51 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 15:59:02 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@5f76c0db invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 15:59:03 INFO  BackEndApplication:61 - Started BackEndApplication in 12.73 seconds (JVM running for 291.869)
+2021-10-22 21:17:03 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 14840 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 21:17:03 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 21:17:03 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 21:17:30 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@1e1ec6e1 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 21:17:32 INFO  BackEndApplication:61 - Started BackEndApplication in 29.537 seconds (JVM running for 32.335)
+2021-10-22 21:34:10 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 14840 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 21:34:10 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 21:34:10 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 21:34:27 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@35fdbab2 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 21:34:28 INFO  BackEndApplication:61 - Started BackEndApplication in 18.162 seconds (JVM running for 1048.428)
+2021-10-22 21:46:18 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 21796 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 21:46:18 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 21:46:18 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 21:46:49 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6bf0ef31 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 21:46:53 INFO  BackEndApplication:61 - Started BackEndApplication in 34.622 seconds (JVM running for 38.849)
+2021-10-22 21:54:26 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@3b43d006 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 21:54:26 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:04:27 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@59ec65ec invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:04:27 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:04:49 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@73598aa5 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:04:50 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:07:32 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@33665a20 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:07:32 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:08:08 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@37e37cec invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:08:08 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:11:47 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@29c3c130 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:11:48 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:13:08 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@19f1515b invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:13:08 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:15:24 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@5c350507 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:15:25 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:19:47 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@727acbf5 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:19:47 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:20:13 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@59d12534 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:20:14 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:21:43 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@402a1641 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:21:44 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:22:51 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@239235b4 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:22:51 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:24:01 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@2069ef92 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:24:01 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:24:02 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@750a320d invoking ResponseEntity com.revature.controllers.UserController.findByUserName(String)
+2021-10-22 22:24:02 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findByUsername(String)
+2021-10-22 22:44:24 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@c104738 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:44:24 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:46:15 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@65968506 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:46:15 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:48:42 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@14fcbe9c invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:48:42 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:53:31 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@179ba048 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:53:31 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 22:58:00 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@25171d24 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 22:58:00 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 23:03:45 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@586b4516 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 23:03:45 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 23:03:45 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@35f04c23 invoking ResponseEntity com.revature.controllers.UserController.findByUserName(String)
+2021-10-22 23:03:45 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findByUsername(String)
+2021-10-22 23:25:12 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@422ac179 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 23:25:13 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 23:25:13 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@79463511 invoking ResponseEntity com.revature.controllers.UserController.findByUserName(String)
+2021-10-22 23:25:13 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findByUsername(String)
+2021-10-22 23:25:13 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6489cf3 invoking ResponseEntity com.revature.controllers.UserAnimeController.findUserLibrary(int)
+2021-10-22 23:25:13 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findById(int)
+2021-10-22 23:26:43 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@e2b761c invoking ResponseEntity com.revature.controllers.UserAnimeController.findUserLibrary(int)
+2021-10-22 23:26:43 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findById(int)
+2021-10-22 23:26:50 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@5daaf33d invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 23:26:50 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 23:26:50 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@7d372dba invoking ResponseEntity com.revature.controllers.UserController.findByUserName(String)
+2021-10-22 23:26:50 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findByUsername(String)
+2021-10-22 23:26:50 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@57adccae invoking ResponseEntity com.revature.controllers.UserAnimeController.findUserLibrary(int)
+2021-10-22 23:26:50 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findById(int)
+2021-10-22 23:28:06 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@79c3d42c invoking ResponseEntity com.revature.controllers.UserAnimeController.findUserLibrary(int)
+2021-10-22 23:28:06 INFO  LoggingAspect:51 - com.revature.services.UserService@402ce681 invoked User com.revature.services.UserService.findById(int)
+2021-10-22 23:44:16 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 21796 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 23:44:16 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 23:44:16 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 23:44:31 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@1fa42e61 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 23:44:32 INFO  BackEndApplication:61 - Started BackEndApplication in 16.545 seconds (JVM running for 7098.491)
+2021-10-22 23:46:34 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 1.8.0_301 on DESKTOP-OV47SD8 with PID 21796 (C:\Users\katie\group2p2\BackEnd\bin\main started by postgres in C:\Users\katie\group2p2\BackEnd)
+2021-10-22 23:46:34 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 23:46:34 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 23:46:47 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@14c9a07c invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 23:46:48 INFO  BackEndApplication:61 - Started BackEndApplication in 14.467 seconds (JVM running for 7234.089)
