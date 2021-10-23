@@ -7,6 +7,7 @@ export class Anime {
         public uRating: number,
         public synopsis:string,
         public genre:object[],
-        public studios:object[]
+        public studios:object[],
+        public imageURL:string
     ){}
 }

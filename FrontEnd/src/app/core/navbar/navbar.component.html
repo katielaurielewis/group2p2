@@ -1,1 +1,19 @@
-<p>navbar works!</p>
+<nav class ="navbar navbar-custom navbar-expand-lg">
+  <div class="container-fluid">
+    <div id="home" class="col-4">
+      <a class="nav-link lead" routerLink="dashboard">
+        <img src="../../../assets/ProtoType2.png" alt="" height="30" class="d-inline-block align-text-top">
+        Home</a>
+    </div>
+  <div id="search" class="col-3">
+      <div class="input-group ">
+        <input type="text" class="form-control" placeholder="Search Anime Library">
+      </div>
+  </div>
+    <div id="logout" class="col-4">
+      <a class="nav-link lead" (click)="logout()">
+      <button class="btn h4"> <img src="../../../assets/logout.png" alt="" height="30" class="d-inline-block align-text-top"></button>
+      Logout</a>
+    </div>
+  </div>
+</nav>

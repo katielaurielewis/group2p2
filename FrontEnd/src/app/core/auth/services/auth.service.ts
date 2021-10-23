@@ -20,14 +20,14 @@ const httpOptions = {
 
 export class AuthService {
 
-  url: string = "http://localhost:8090/"
+  url: string = "http://localhost:8090/anilib/"
   constructor(
     private http: HttpClient,
     public router: Router,
   ) { }
 
-  register(user: User): Observable<User> {
-    return this.http.post<User>(this.url + "register", user, httpOptions)
+  register(user: User) {
+    return this.http.post<User>(this.url + "register", user)
       .pipe(
         catchError(this.handleError)
       )

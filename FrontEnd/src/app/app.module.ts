@@ -9,21 +9,21 @@ import { Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './core/navbar/navbar.component';
 import { RecommenderComponent } from './features/recommender/recommender.component';
 import { LibraryComponent } from './features/library/library.component';
 import { UserDashboardComponent } from './features/user-dashboard/user-dashboard.component';
 import { CoreModule } from './core/core.module';
 import { AuthInterceptor } from './core/auth/services/auth.interceptor';
+import { NavbarComponent } from './core/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     RecommenderComponent,
     LibraryComponent,
     UserDashboardComponent,
+    NavbarComponent
   ],
 
   imports: [
