@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { AnimeService } from 'src/app/shared/anime.service';
 
 @Component({
   selector: 'app-recommender',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecommenderComponent implements OnInit {
 
-  constructor() { }
+  name = new FormControl('');
+  constructor(private animeService: AnimeService) { }
 
   ngOnInit(): void {
   }
 
+  // displayAnime(){
+  //   this.animeService.searchAnime(this.name.value)
+  // }
 }

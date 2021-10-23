@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { shareReplay, retry, catchError} from 'rxjs/operators'
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError} from 'rxjs/operators'
 
 import { User } from '../models/user';
 
@@ -20,6 +20,7 @@ const httpOptions = {
 
 export class AuthService {
 
+  loggedIn = new BehaviorSubject<boolean>(this.tokenAvailable());
   url: string = "http://localhost:8090/anilib/"
   tokenKey: string = 'access_token'
   constructor(
@@ -42,17 +43,16 @@ export class AuthService {
   }
 
   async setToken(token: string) {
-    localStorage.setItem(this.tokenKey, token)
+    localStorage.setItem(this.tokenKey, token);
   }
+
 
   getToken(){
     return localStorage.getItem(this.tokenKey)
   }
 
   get IsLoggedIn(){
-    let authToken = localStorage.getItem(this.tokenKey);
-    console.log(authToken);
-    return authToken !== null && authToken != 'undefined';
+    return this.loggedIn.asObservable();
   }
 
   logout(){
@@ -72,4 +72,7 @@ export class AuthService {
     return throwError(msg);
   }
 
+  tokenAvailable(): boolean{
+    return !this.getToken();
+  }
 }
