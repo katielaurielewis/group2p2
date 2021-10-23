@@ -6,8 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -81,19 +83,27 @@ public class ReviewController {
 
 	}
 
-	@PostMapping
-	public ResponseEntity addReview(@RequestBody Review review) {
-		
-		if(review == null) {
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}
-		
-		rService.save(review);
-		
-		return ResponseEntity.status(HttpStatus.CREATED).build();
-		
-	}
+//	@PostMapping
+//	public ResponseEntity addReview(@RequestBody Review review) {
+//		
+//		if(review == null) {
+//			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//		}
+//		
+//		rService.save(review);
+//		
+//		return ResponseEntity.status(HttpStatus.CREATED).build();
+//	}
 
+	//If our html is consistent with the following method, we can use it. But we can still use the above method (which I commented out).
+	
+	
+	@PostMapping("/addReview")
+	  public String addReview(@ModelAttribute Review review, Model model) {
+	    model.addAttribute("review", review);
+	    return "result"; //result is the name of a form called result.html and it should be stored inside the src/main/resources package. but we don't have it
+	  }
+	
 
 
 }

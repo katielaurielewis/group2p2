@@ -5,3 +5,236 @@
 2021-10-22 14:12:19 INFO  BackEndApplication:61 - Started BackEndApplication in 36.556 seconds (JVM running for 40.715)
 2021-10-22 14:13:00 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@64dde64 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
 2021-10-22 14:13:01 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 15:55:24 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 18576 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 15:55:24 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 15:55:24 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 15:55:36 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 18472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 15:55:36 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 15:55:36 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 15:55:51 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@11df3e49 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 15:55:52 INFO  BackEndApplication:61 - Started BackEndApplication in 16.844 seconds (JVM running for 17.698)
+2021-10-22 15:57:18 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@4745e0f1 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 15:57:19 INFO  LoggingAspect:44 - USER LOGIN FAILED
+2021-10-22 15:58:41 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@373b2c8b invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 15:58:41 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 16:13:17 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@31aaa3f6 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 16:13:17 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 17:02:01 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@2a6bb02d invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 17:02:02 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 17:08:26 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 5304 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 17:08:26 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 17:08:26 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 17:09:06 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 18472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 17:09:06 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 17:09:06 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 17:09:18 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@57848bfe invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 17:09:19 INFO  BackEndApplication:61 - Started BackEndApplication in 13.083 seconds (JVM running for 4424.533)
+2021-10-22 17:10:08 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 19160 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 17:10:08 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 17:10:08 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 17:11:06 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 16736 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 17:11:06 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 17:11:06 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 17:12:05 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 1216 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 17:12:05 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 17:12:05 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 17:12:11 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@3c193c30 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 17:12:12 INFO  BackEndApplication:61 - Started BackEndApplication in 7.555 seconds (JVM running for 8.417)
+2021-10-22 17:14:58 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@16a94f4c invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 17:14:58 INFO  LoggingAspect:44 - USER LOGIN FAILED
+2021-10-22 17:24:36 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 20156 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 17:24:36 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 17:24:36 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 17:26:08 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 9896 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-22 17:26:08 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-22 17:26:08 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-22 17:26:24 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@adda641 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-22 17:26:25 INFO  BackEndApplication:61 - Started BackEndApplication in 17.49 seconds (JVM running for 18.399)
+2021-10-22 17:30:31 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@47bd1cbf invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 17:30:31 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-22 18:01:03 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@1df6d24f invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-22 18:01:03 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 07:55:22 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 17020 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 07:55:22 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 07:55:22 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 07:55:38 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@7e6e167 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 07:55:39 INFO  BackEndApplication:61 - Started BackEndApplication in 17.597 seconds (JVM running for 18.582)
+2021-10-23 07:56:26 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@3e99b851 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 07:56:26 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 08:00:25 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 17020 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 08:00:25 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 08:00:25 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 08:00:37 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6de12c70 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 08:00:37 INFO  BackEndApplication:61 - Started BackEndApplication in 12.875 seconds (JVM running for 316.965)
+2021-10-23 08:09:37 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 17020 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 08:09:37 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 08:09:37 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 08:09:49 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 19416 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 08:09:49 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 08:09:49 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 08:10:04 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@18a482a7 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 08:10:06 INFO  BackEndApplication:61 - Started BackEndApplication in 17.031 seconds (JVM running for 17.885)
+2021-10-23 08:13:52 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 19416 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 08:13:52 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 08:13:52 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 08:14:06 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@5fada3af invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 08:14:07 INFO  BackEndApplication:61 - Started BackEndApplication in 15.485 seconds (JVM running for 259.842)
+2021-10-23 08:14:08 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@11e67ea1 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 08:14:08 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 08:33:01 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 16412 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 08:33:01 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 08:33:01 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 08:33:17 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@7048d8c2 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 08:33:18 INFO  BackEndApplication:61 - Started BackEndApplication in 17.043 seconds (JVM running for 17.917)
+2021-10-23 08:33:49 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@623a12d8 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 08:33:50 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 08:35:04 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 16412 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 08:35:04 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 08:35:04 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 08:35:18 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@13e2d949 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 08:35:20 INFO  BackEndApplication:61 - Started BackEndApplication in 15.79 seconds (JVM running for 139.798)
+2021-10-23 08:35:37 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 08:35:37 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 08:35:37 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 08:35:53 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@30a43807 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 08:35:54 INFO  BackEndApplication:61 - Started BackEndApplication in 17.034 seconds (JVM running for 17.893)
+2021-10-23 08:36:22 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@33bee1d3 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 08:36:22 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 09:03:47 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 09:03:47 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 09:03:47 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 09:04:00 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@14969f0a invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 09:04:00 INFO  BackEndApplication:61 - Started BackEndApplication in 12.805 seconds (JVM running for 1704.316)
+2021-10-23 09:07:18 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 09:07:18 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 09:07:18 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 09:07:30 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@5a4f32a1 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 09:07:31 INFO  BackEndApplication:61 - Started BackEndApplication in 12.592 seconds (JVM running for 1915.186)
+2021-10-23 09:12:47 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 09:12:47 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 09:12:47 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 09:12:59 INFO  BackEndApplication:61 - Started BackEndApplication in 12.263 seconds (JVM running for 2243.579)
+2021-10-23 09:13:21 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@23f51810 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 09:13:22 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 09:14:10 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 09:14:10 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 09:14:10 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 09:14:23 INFO  BackEndApplication:61 - Started BackEndApplication in 13.393 seconds (JVM running for 2327.707)
+2021-10-23 09:14:23 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@2be07dce invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 09:14:24 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 09:21:55 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 09:21:55 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 09:21:55 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 09:22:07 INFO  BackEndApplication:61 - Started BackEndApplication in 12.446 seconds (JVM running for 2791.332)
+2021-10-23 09:22:23 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@79a6f023 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 09:22:23 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 09:23:06 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21472 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 09:23:06 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 09:23:06 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 09:23:18 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@4eef3530 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 09:23:19 INFO  BackEndApplication:61 - Started BackEndApplication in 13.037 seconds (JVM running for 2863.573)
+2021-10-23 11:15:38 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 13192 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 11:15:39 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 11:15:39 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 11:18:14 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 9544 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 11:18:14 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 11:18:14 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 11:18:48 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 20152 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 11:18:48 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 11:18:48 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 11:19:19 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 9276 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 11:19:19 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 11:19:19 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 11:19:35 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 11040 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 11:19:35 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 11:19:35 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 11:20:19 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 14364 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 11:20:19 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 11:20:19 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 11:20:40 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 24028 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 11:20:40 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 11:20:40 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 11:20:56 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@6076e35d invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 11:20:57 INFO  BackEndApplication:61 - Started BackEndApplication in 17.025 seconds (JVM running for 17.875)
+2021-10-23 11:21:05 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@5e8e9327 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 11:21:05 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 11:23:46 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@85cc6ec invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 11:23:46 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 12:27:21 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 26280 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:27:21 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:27:21 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:27:39 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 19712 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:27:39 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:27:39 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:27:52 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 7700 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:27:52 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:27:52 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:28:03 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 20252 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:28:03 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:28:03 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:28:15 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 3180 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:28:15 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:28:15 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:28:26 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 13028 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:28:26 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:28:26 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:28:38 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 4960 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:28:38 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:28:38 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:28:56 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 24084 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:28:56 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:28:56 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:29:15 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 6168 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:29:15 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:29:15 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:29:28 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 21076 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:29:28 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:29:28 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:29:42 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 19828 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:29:42 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:29:42 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:29:55 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 25136 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:29:55 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:29:55 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:30:10 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 10216 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:30:10 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:30:10 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:30:37 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 23464 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by metag in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:30:37 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:30:37 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:30:51 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 26816 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:30:51 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:30:51 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:31:03 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 19964 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:31:03 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:31:03 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:31:17 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 5600 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:31:17 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:31:17 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:31:31 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 27036 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:31:31 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:31:31 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:31:44 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 9700 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:31:44 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:31:44 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:32:07 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 9712 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:32:07 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:32:07 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:33:30 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 25628 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 12:33:30 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 12:33:30 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 12:33:46 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@4471d544 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 12:33:48 INFO  BackEndApplication:61 - Started BackEndApplication in 17.375 seconds (JVM running for 18.234)
+2021-10-23 12:34:12 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@675636c2 invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 12:34:12 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 12:35:04 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@5bebb9e invoking ResponseEntity com.revature.controllers.LoginController.checkCredentials(LoginDTO)
+2021-10-23 12:35:04 INFO  LoggingAspect:42 - USER LOGIN GRANTED
+2021-10-23 16:11:38 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 25628 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 16:11:38 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 16:11:38 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 16:11:49 INFO  BackEndApplication:55 - Starting BackEndApplication using Java 15 on DESKTOP-6NEB25E with PID 8444 (C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd\bin\main started by postgres in C:\Users\metag\Desktop\Revature\Training\Assignments\refactor\group2p2\BackEnd)
+2021-10-23 16:11:49 DEBUG BackEndApplication:56 - Running with Spring Boot v2.5.5, Spring v5.3.10
+2021-10-23 16:11:49 INFO  BackEndApplication:659 - No active profile set, falling back to default profiles: default
+2021-10-23 16:11:51 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@73f687b9 invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()
+2021-10-23 16:11:52 INFO  BackEndApplication:61 - Started BackEndApplication in 14.171 seconds (JVM running for 13103.148)
+2021-10-23 16:12:05 INFO  LoggingAspect:85 - A request was made to org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$SourceLocationImpl@3d62c8bd invoking RestTemplate com.revature.controllers.AnimeController.getRestTemplate()

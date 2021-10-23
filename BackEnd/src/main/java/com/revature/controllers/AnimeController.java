@@ -7,8 +7,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +30,7 @@ import com.revature.services.UserService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200", allowCredentials ="true")
-@RequestMapping(value="/anilib")
+@RequestMapping(value="/anime")
 public class AnimeController {
 	
 
@@ -57,11 +59,21 @@ public class AnimeController {
 		return ResponseEntity.status(200).body(aService.findAll());
 	}
 	
-	@PostMapping
-	public ResponseEntity addAnime(@RequestBody Anime a) {
-		aService.save(a);
-		return ResponseEntity.status(200).build();
-	}
+//	@PostMapping
+//	public ResponseEntity addAnime(@RequestBody Anime a) {
+//		aService.save(a);
+//		return ResponseEntity.status(200).build();
+//	}
+	
+	
+	//If our html is consistent with the following method, we can use it. But we can still use the above method (which I commented out).
+	
+	
+	@PostMapping("/addAnime")
+	  public String addAnime(@ModelAttribute Anime anime, Model model) {
+	    model.addAttribute("anime", anime);
+	    return "result"; //result is the name of a form called result.html and it should be stored inside the src/main/resources package. but we don't have it
+	  }
 	
 	
 	@GetMapping(value = "/id/{id}")
