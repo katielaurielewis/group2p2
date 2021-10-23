@@ -15,7 +15,7 @@ import com.revature.models.User;
 import com.revature.services.UserService;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/user")
 @CrossOrigin(origins = "http://localhost:4200", allowCredentials ="true")
 public class UserController {
 	
@@ -27,7 +27,7 @@ public class UserController {
 		this.uService = us;
 	}
 	
-	@PostMapping
+	@PostMapping(value = "/register")
 	public ResponseEntity<User> registerUser(@RequestBody User u){
 		
 		if(u == null) {
@@ -40,7 +40,7 @@ public class UserController {
 		
 	}
 	
-	@GetMapping(value = "/user/{username}")  
+	@GetMapping(value = "/{username}")  
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 
 		User user = uService.findByUsername(username);
