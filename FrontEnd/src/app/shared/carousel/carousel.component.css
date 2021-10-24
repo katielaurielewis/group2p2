@@ -5,7 +5,6 @@
 body {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    color: #5a5a5a;
   }
   
   
@@ -15,16 +14,24 @@ body {
   /* Carousel base class */
   .carousel {
     margin-bottom: 4rem;
+    background-color: dimgrey;
   }
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 24rem;
+    bottom: 1rem;
+    z-index: 0;
+    color:gainsboro;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
   }
   
   /* Declare heights because of positioning of img element */
   .carousel-item {
     height: 32rem;
+    background-color: dimgrey;
+
   }
   .carousel-item > img {
     position: absolute;
@@ -33,6 +40,9 @@ body {
     height: 32rem;
   }
   
+  .carousel-slide{
+    background-color: dimgrey;
+  }
   
   /* MARKETING CONTENT
   -------------------------------------------------- */
