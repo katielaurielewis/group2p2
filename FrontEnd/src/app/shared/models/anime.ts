@@ -1,13 +1,13 @@
-export class Anime {
+import { Genre } from "./genre";
+import { Studio } from "./studio";
 
-    constructor(
-        public _id:number,
-        public title:string,
-        public mRating:string,
-        public uRating: number,
-        public synopsis:string,
-        public genre:object[],
-        public studios:object[],
-        public imageURL:string
-    ){}
+export class Anime {
+    id!: number;
+    title!: string;
+    rating!: string;
+    score!: number;
+    synopsis!: string;
+    image!: string;
+    themes!: Genre;
+    studios!: Studio;
 }

@@ -25,7 +25,6 @@ export class LibraryComponent implements OnInit {
     this.http.get<any>(this.endpoint + user.id)
     .subscribe((res: Anime[]) => {
       this.anime = res;
-      console.log(this.anime)
     })
   }
 

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AnimeService } from 'src/app/shared/anime.service';
+import { Anime } from 'src/app/shared/models/anime';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Genre } from 'src/app/shared/models/genre';
 
 @Component({
   selector: 'app-recommender',
@@ -9,13 +12,40 @@ import { AnimeService } from 'src/app/shared/anime.service';
 })
 export class RecommenderComponent implements OnInit {
 
-  name = new FormControl('');
-  constructor(private animeService: AnimeService) { }
+  public recommendationForm!: FormGroup;
+  recommendedAnime: Anime | undefined;
+  buttonDisabled = false;
+  constructor(private animeService: AnimeService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.recommendationForm = this.formBuilder.group({
+      genre: ['', Validators.required],
+      rating: ['', Validators.required]
+    })
   }
 
   // displayAnime(){
   //   this.animeService.searchAnime(this.name.value)
   // }
+
+  recommendAnime() {
+    var genre = this.recommendationForm.controls['genre'].value
+    var rating = this.recommendationForm.controls['rating'].value
+
+    // mocking out anime object until endpoint is fixed
+    var anime = new Anime()
+    var genreObj = new Genre()
+    genreObj.name = "Action"
+    anime.title = "Title!"
+    anime.rating = "PG-13"
+    anime.synopsis = "This the synopsis for the anime!"
+    anime.themes = genreObj
+    this.recommendedAnime = anime
+    
+    // doesn't work until recommend endpoint is fixed in back end
+    /*this.animeService.recommendAnime(genre, rating).then((res: Anime) => {
+      this.recommendedAnime = res;
+      this.buttonDisabled = false;
+    })*/
+  }
 }
