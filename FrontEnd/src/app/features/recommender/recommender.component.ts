@@ -35,17 +35,17 @@ export class RecommenderComponent implements OnInit {
     // mocking out anime object until endpoint is fixed
     var anime = new Anime()
     var genreObj = new Genre()
-    genreObj.name = "Action"
-    anime.title = "Title!"
-    anime.rating = "PG-13"
-    anime.synopsis = "This the synopsis for the anime!"
-    anime.themes = genreObj
-    this.recommendedAnime = anime
+    // genreObj.name = "Action"
+    // anime.title = "Title!"
+    // anime.rating = "PG-13"
+    // anime.synopsis = "This the synopsis for the anime!"
+    // anime.themes = genreObj
+    // this.recommendedAnime = anime
     
     // doesn't work until recommend endpoint is fixed in back end
-    /*this.animeService.recommendAnime(genre, rating).then((res: Anime) => {
+    this.animeService.recommendAnime(genre, rating).then((res: Anime) => {
       this.recommendedAnime = res;
       this.buttonDisabled = false;
-    })*/
+    })
   }
 }

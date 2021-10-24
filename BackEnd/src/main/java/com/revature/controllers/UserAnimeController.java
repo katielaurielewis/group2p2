@@ -102,6 +102,13 @@ public class UserAnimeController {
 			uAnime.setWatchStatus(ws.getById(1)); //sets to not watched, if they do not already claim it as watched
 		}
 		
+		//Currently it wasnt working if the Anime did not exist, this should help it ouw
+		Optional<Anime> oA = as.findById(uAnime.getAnime().getId());
+		
+		if(!(oA.isPresent())) {
+			as.save(uAnime.getAnime());
+		}
+		
 		uas.save(uAnime);
 		
 		return ResponseEntity.ok().build();

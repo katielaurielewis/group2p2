@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -70,6 +71,13 @@ public class AnimeController {
 	@PostMapping("/addAnime")
 	  public String addAnime(@ModelAttribute Anime anime, Model model) {
 	    model.addAttribute("anime", anime);
+	    
+	    
+	    aService.save(anime);
+	    //Ok, we for sure need this^^ for this method to actually do anything with regards to the database
+	    //That being said, We need to make sure to talk about this tommorow at standup, cause currently I don't think this is the way
+	    
+	    
 	    return "result"; //result is the name of a form called result.html and it should be stored inside the src/main/resources package. but we don't have it
 	}
 	
@@ -107,49 +115,8 @@ public class AnimeController {
 		return ResponseEntity.ok(a);
 	}
 	
-//	@GetMapping(value = "/recommend/{userId}/{genre}/{rating}")
-//	public ResponseEntity<Anime> recommendAnime(@PathVariable int userId, @PathVariable String genre, @PathVariable String rating){
-//		Genre g = gService.findByName(genre).get();
-//		
-//		APIGenre apig = this.restTemplate.getForObject("https://api.jikan.moe/v3/genre/anime/" + g.getId(), APIGenre.class);
-//		
-//		List<Anime> aList = apig.getAnime();
-//		
-//		User u = uService.findById(userId);
-//		List<UserAnime> uLibrary = u.getLibrary();
-//		
-//		for(Anime a : aList) {
-//			for(UserAnime uAnime : uLibrary) {
-//				if(a.getId() == uAnime.getAnime().getId()) {
-//					aList.remove(a);
-//					break;
-//				} else {
-//					a.setRating(uAnime.getAnime().getRating());
-//					//for some reason this API call doesn't grab the rating,
-//					//so I'll just take it from our end
-//				}
-//			}
-//		}
-//		
-//		Iterator<Anime> itr = aList.iterator();
-//		
-//		while(itr.hasNext()) {
-//			Anime a = (Anime) itr.next();
-//			if(a.getRating() != rating) {
-//				//Not the rating the user wants
-//				itr.remove();
-//			}
-//		}
-//		
-//		int r = (int) Math.random()*(aList.size()+1);
-//		//Finally, we take a random Anime that is left over
-//		
-//		return ResponseEntity.ok(aList.get(r));
-//	}
-	
 	
 	//This method gets a random anime based on the User's wants
-	//It uses the database, as opposed to trying to use the API like above
 	@GetMapping(value = "/recommend/{userId}/{genre}/{rating}")
 	public ResponseEntity<Anime> recommendAnime(@PathVariable int userId, @PathVariable String genre, @PathVariable String rating){
 		Genre g = gService.findByName(genre).get();
@@ -158,31 +125,41 @@ public class AnimeController {
 		
 		User u = uService.findById(userId);
 		List<UserAnime> uLibrary = u.getLibrary();
+		List<Anime> aList2 = new ArrayList<>();
 		
 		for (Anime a : aList) {
+			
+			List<Integer> animes = new ArrayList<>();
+			
 			for (UserAnime uAnime : uLibrary) {
-				if (a.getId() == uAnime.getAnime().getId()) {
-					aList.remove(a);
-					break;
+				animes.add(uAnime.getAnime().getId());
 				}
+			
+			if(!(animes.contains(a.getId()))) {
+				aList2.add(a);
 			}
+			
+			animes = null;
 		}
 
-		Iterator<Anime> itr = aList.iterator();
-
-		while (itr.hasNext()) {
-			Anime a = (Anime) itr.next();
-			if (!(a.getRating().equals(rating)) || a.getThemes().getId() != g.getId()) {
-				// Not the rating the user wants, or not the genre they want
-				itr.remove();
+		List<Anime> aList3 = new ArrayList<>();
+		
+		for (Anime a : aList2) {
+			if(a.getRating().equals(rating) && a.getThemes().getName().equals(genre)) {
+				//checks the rating and the genre of the anime
+				//if there is a match, we add it
+				aList3.add(a);
 			}
 		}
 		
 		
-		int r = (int) Math.random()*(aList.size()+1);
+		int r = (int) (Math.random()*(aList3.size()));
+		
+//		System.out.println("Size is:" +aList3.size());
+//		System.out.println("Our random number is: " +r);//debug statement
 		//Finally, we take a random Anime that is left over
 		
-		return ResponseEntity.ok(aList.get(r));
+		return ResponseEntity.ok(aList3.get(r));
 	}
 
 }
