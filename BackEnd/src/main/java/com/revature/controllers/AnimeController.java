@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -165,31 +166,33 @@ public class AnimeController {
 		
 		User u = uService.findById(userId);
 		List<UserAnime> uLibrary = u.getLibrary();
+		List<Anime> aList2 = new ArrayList<>();
 		
 		for (Anime a : aList) {
 			for (UserAnime uAnime : uLibrary) {
-				if (a.getId() == uAnime.getAnime().getId()) {
-					aList.remove(a);
-					break;
+				if (a.getId() != uAnime.getAnime().getId() && !(aList2.contains(a))) {
+					//If the user does not have the anime in their library, add it
+					//Also makes sure we dont add multiple of the same anime
+					aList2.add(a);
 				}
 			}
 		}
 
-		Iterator<Anime> itr = aList.iterator();
-
-		while (itr.hasNext()) {
-			Anime a = (Anime) itr.next();
-			if (!(a.getRating().equals(rating)) || a.getThemes().getId() != g.getId()) {
-				// Not the rating the user wants, or not the genre they want
-				itr.remove();
+		List<Anime> aList3 = new ArrayList<>();
+		
+		for (Anime a : aList2) {
+			if(a.getRating().equals(rating) && a.getThemes().getName().equals(genre)) {
+				//checks the rating and the genre of the anime
+				//if there is a match, we add it
+				aList3.add(a);
 			}
 		}
 		
 		
-		int r = (int) Math.random()*(aList.size()+1);
+		int r = (int) Math.random()*(aList3.size()+1);
 		//Finally, we take a random Anime that is left over
 		
-		return ResponseEntity.ok(aList.get(r));
+		return ResponseEntity.ok(aList3.get(r));
 	}
 
 }
