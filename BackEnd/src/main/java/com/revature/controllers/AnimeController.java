@@ -115,49 +115,8 @@ public class AnimeController {
 		return ResponseEntity.ok(a);
 	}
 	
-//	@GetMapping(value = "/recommend/{userId}/{genre}/{rating}")
-//	public ResponseEntity<Anime> recommendAnime(@PathVariable int userId, @PathVariable String genre, @PathVariable String rating){
-//		Genre g = gService.findByName(genre).get();
-//		
-//		APIGenre apig = this.restTemplate.getForObject("https://api.jikan.moe/v3/genre/anime/" + g.getId(), APIGenre.class);
-//		
-//		List<Anime> aList = apig.getAnime();
-//		
-//		User u = uService.findById(userId);
-//		List<UserAnime> uLibrary = u.getLibrary();
-//		
-//		for(Anime a : aList) {
-//			for(UserAnime uAnime : uLibrary) {
-//				if(a.getId() == uAnime.getAnime().getId()) {
-//					aList.remove(a);
-//					break;
-//				} else {
-//					a.setRating(uAnime.getAnime().getRating());
-//					//for some reason this API call doesn't grab the rating,
-//					//so I'll just take it from our end
-//				}
-//			}
-//		}
-//		
-//		Iterator<Anime> itr = aList.iterator();
-//		
-//		while(itr.hasNext()) {
-//			Anime a = (Anime) itr.next();
-//			if(a.getRating() != rating) {
-//				//Not the rating the user wants
-//				itr.remove();
-//			}
-//		}
-//		
-//		int r = (int) Math.random()*(aList.size()+1);
-//		//Finally, we take a random Anime that is left over
-//		
-//		return ResponseEntity.ok(aList.get(r));
-//	}
-	
 	
 	//This method gets a random anime based on the User's wants
-	//It uses the database, as opposed to trying to use the API like above
 	@GetMapping(value = "/recommend/{userId}/{genre}/{rating}")
 	public ResponseEntity<Anime> recommendAnime(@PathVariable int userId, @PathVariable String genre, @PathVariable String rating){
 		Genre g = gService.findByName(genre).get();
@@ -195,6 +154,7 @@ public class AnimeController {
 		
 		
 		int r = (int) (Math.random()*(aList3.size()));
+		
 //		System.out.println("Size is:" +aList3.size());
 //		System.out.println("Our random number is: " +r);//debug statement
 		//Finally, we take a random Anime that is left over
