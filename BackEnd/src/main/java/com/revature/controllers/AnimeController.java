@@ -169,13 +169,18 @@ public class AnimeController {
 		List<Anime> aList2 = new ArrayList<>();
 		
 		for (Anime a : aList) {
+			
+			List<Integer> animes = new ArrayList<>();
+			
 			for (UserAnime uAnime : uLibrary) {
-				if (a.getId() != uAnime.getAnime().getId() && !(aList2.contains(a))) {
-					//If the user does not have the anime in their library, add it
-					//Also makes sure we dont add multiple of the same anime
-					aList2.add(a);
+				animes.add(uAnime.getAnime().getId());
 				}
+			
+			if(!(animes.contains(a.getId()))) {
+				aList2.add(a);
 			}
+			
+			animes = null;
 		}
 
 		List<Anime> aList3 = new ArrayList<>();
@@ -189,7 +194,9 @@ public class AnimeController {
 		}
 		
 		
-		int r = (int) Math.random()*(aList3.size()+1);
+		int r = (int) (Math.random()*(aList3.size()));
+//		System.out.println("Size is:" +aList3.size());
+//		System.out.println("Our random number is: " +r);//debug statement
 		//Finally, we take a random Anime that is left over
 		
 		return ResponseEntity.ok(aList3.get(r));
