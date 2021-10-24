@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "users")
 @Component
@@ -37,7 +39,8 @@ public class User {
 	@Column(name = "last_name")
 	private String lName;
 	
-	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)
+	@JsonIgnore
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	private List<UserAnime> library;
 	//This is how we'll get the many-to-many relationship we need
 
@@ -74,7 +77,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", fName="
-				+ fName + ", lName=" + lName + ", library=" + library + "]";
+				+ fName + ", lName=" + lName + "]";
 	}
 	
 	@Override
@@ -85,7 +88,6 @@ public class User {
 		result = prime * result + ((fName == null) ? 0 : fName.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lName == null) ? 0 : lName.hashCode());
-		result = prime * result + ((library == null) ? 0 : library.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;

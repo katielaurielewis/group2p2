@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Anime")
 @Component
@@ -48,7 +50,8 @@ public class Anime {
 	private Studio studios;
 	//private List<Studio> studios;
 	
-	@OneToMany(mappedBy = "anime", fetch = FetchType.EAGER)
+	@JsonIgnore
+	@OneToMany(mappedBy = "anime", fetch = FetchType.LAZY)
 	private List<UserAnime> userAnimes;
 	//This is how we'll get the many-to-many relationship working
 
