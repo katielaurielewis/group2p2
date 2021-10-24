@@ -49,7 +49,7 @@
         <h3>View another user's library</h3>
            </div>
       <input type="text" [(ngModel)]="friend" ><br/>
-      <a href="../examples/" class="btn btn-primary btn-lg px-4">Go to {{friend}}'s library</a>  
+      <a class="btn btn-primary btn-lg px-4" [routerLink]="['/library', friend]">Go to {{friend}}'s library</a>  
       <div class="col-md-6">
       </div>
     </div>

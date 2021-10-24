@@ -15,5 +15,5 @@ export class UserDashboardComponent implements OnInit {
 
   user: User = JSON.parse(localStorage.getItem('user')!)
   username = this.user.username;
-  friend = "";
+  friend = ""
 }

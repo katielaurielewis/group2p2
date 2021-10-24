@@ -7,10 +7,10 @@
     <link href="library.component.css" rel="stylesheet">
     <div>
       <header>
-        <a *ngIf="username">
-          <span>{{username}}'s Library</span>
+        <a *ngIf="user">
+          <span>{{user.username}}'s Library</span>
         </a>
       </header>
-      </div>
+    </div>
     <app-carousel [anime]=anime></app-carousel>
 </html>

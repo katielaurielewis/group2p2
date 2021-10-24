@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           this.http.get<User>(this.userEndpoint + this.loginForm.get('username')!.value).subscribe((res:User) => {
             localStorage.setItem('user', JSON.stringify(res))
             this.loginForm.reset();
-            this.router.navigate([`/library`]);
+            this.router.navigate([`/dashboard`]);
           });
         })
       })

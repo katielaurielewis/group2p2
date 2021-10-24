@@ -6,7 +6,10 @@ import { UserDashboardComponent } from './features/user-dashboard/user-dashboard
 
 const routes: Routes = [
   {path: 'dashboard', component:UserDashboardComponent},
-  {path: 'library', component:LibraryComponent}
+  {path: 'library', component:LibraryComponent},
+  {path: 'library/:username', component:LibraryComponent },
+  {path: 'watched', component:LibraryComponent },
+  {path: 'watched/:username', component:LibraryComponent },
 ];
 
 @NgModule({
