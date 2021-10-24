@@ -99,6 +99,9 @@ public class ReviewController {
 	@PostMapping("/addReview")
 	  public String addReview(@ModelAttribute Review review, Model model) {
 	    model.addAttribute("review", review);
+	    
+	    rService.save(review);
+	    
 	    return "result"; //result is the name of a form called result.html and it should be stored inside the src/main/resources package. but we don't have it
 	}
 

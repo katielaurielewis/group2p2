@@ -70,6 +70,13 @@ public class AnimeController {
 	@PostMapping("/addAnime")
 	  public String addAnime(@ModelAttribute Anime anime, Model model) {
 	    model.addAttribute("anime", anime);
+	    
+	    
+	    aService.save(anime);
+	    //Ok, we for sure need this^^ for this method to actually do anything with regards to the database
+	    //That being said, We need to make sure to talk about this tommorow at standup, cause currently I don't think this is the way
+	    
+	    
 	    return "result"; //result is the name of a form called result.html and it should be stored inside the src/main/resources package. but we don't have it
 	}
 	
