@@ -4,6 +4,7 @@ import { AnimeService } from 'src/app/shared/anime.service';
 import { Anime } from 'src/app/shared/models/anime';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Genre } from 'src/app/shared/models/genre';
+import { ApiService } from 'src/app/shared/api.service';
 
 @Component({
   selector: 'app-recommender',
@@ -15,7 +16,7 @@ export class RecommenderComponent implements OnInit {
   public recommendationForm!: FormGroup;
   recommendedAnime: Anime | undefined;
   buttonDisabled = false;
-  constructor(private animeService: AnimeService, private formBuilder: FormBuilder) { }
+  constructor(private animeService: AnimeService, private formBuilder: FormBuilder, private apiService:ApiService) { }
 
   ngOnInit(): void {
     this.recommendationForm = this.formBuilder.group({
@@ -23,10 +24,6 @@ export class RecommenderComponent implements OnInit {
       rating: ['', Validators.required]
     })
   }
-
-  // displayAnime(){
-  //   this.animeService.searchAnime(this.name.value)
-  // }
 
   recommendAnime() {
     var genre = this.recommendationForm.controls['genre'].value

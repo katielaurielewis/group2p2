@@ -6,7 +6,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
-    CarouselComponent
+    CarouselComponent,
   ],
   imports: [
     CommonModule

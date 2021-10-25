@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { UserAnime } from '../core/auth/models/user-anime';
 import { AuthService } from '../core/auth/services/auth.service';
 import { Observable, throwError, forkJoin } from 'rxjs';
-import { catchError, retry, take } from 'rxjs/operators';
+import { catchError, map, mergeMap, retry, take } from 'rxjs/operators';
 import { Anime } from './models/anime';
 import { User } from '../core/auth/models/user';
 
@@ -24,22 +24,41 @@ export class ApiService {
   anime!: Anime
   user!: User
   token = this.authService.getToken() as string
-  url: string = "https://api.jikan.moe/v3/anime/20"
+  url: string = "https://api.jikan.moe/v3/anime/"
 
   constructor(private http: HttpClient, private authService: AuthService, handler: HttpBackend) {
     this.http = new HttpClient(handler)
    }
 
-  async setAnimeId(name: string){
+  getAnimeId(name: string){
     const reqUrl = "https://api.jikan.moe/v3/search/anime?q=" + name + "&page=1&limit=1"
-    const response = await (await fetch(reqUrl)).json()
-    this.anime_id = await response.results[0].mal_id
-    console.log(this.anime_id)
+    return this.http.get(reqUrl)
+    .pipe(mergeMap((res:any)=> // MergeMap to ensure getAnimeId returns a value before starting getAnime
+      this.getAnime(res.results[0].mal_id)
+    ))
   }
 
-   getUserAnime(name: string): Observable<Anime>{
-    this.setAnimeId(name)
-    return this.http.get(this.url) as Observable<Anime> 
+   getAnime(id: number): Observable<Anime>{
+    return this.http.get(this.url + id).pipe(
+      map((res: any) => {
+        return <Anime> {
+          id: res.mal_id,
+          title: res.title,
+          rating: res.rating.substring(0,6),
+          score: res.score,
+          synopsis: res.synopsis.substring(0,200).concat("..."),
+          image: res.image_url,
+          themes: {
+            id: res.themes[0].mal_id,
+            name: res.themes[0].name
+          },
+          studios:{
+            id: res.studios[0].mal_id,
+            name: res.studios[0].name
+          }
+        }
+      })
+    ) 
   }
 
 
@@ -55,4 +74,5 @@ export class ApiService {
     return throwError(
       'Something bad happened; please try again later.');
   }
+  
 }
