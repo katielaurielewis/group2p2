@@ -24,6 +24,8 @@ export class AdderComponent implements OnInit {
   addAnime(){
     console.log(this.addForm.get("title")?.value)
     this.animeService.addUserAnime(this.addForm.get("title")?.value)
+    this.addForm.reset()
+    alert("Anime Added")
   }
 
 }
