@@ -18,7 +18,7 @@ export class AdderComponent implements OnInit {
   }
 
   addAnime(){
-    //whoops
+    this.addForm.reset()
   }
 
 }
