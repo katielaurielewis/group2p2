@@ -18,6 +18,7 @@ const httpOptions = {
 })
 export class ApiService {
 
+
   url: string = "https://api.jikan.moe/v3/anime/"
 
   constructor(private http: HttpClient, private authService: AuthService, handler: HttpBackend) {
@@ -35,6 +36,7 @@ export class ApiService {
    getAnime(id: number): Observable<Anime>{
     return this.http.get(this.url + id).pipe(
       map((res: any) => {
+        console.log(res.mal_id)
         return <Anime> {
           id: res.mal_id,
           title: res.title,
