@@ -14,6 +14,7 @@ import { UserDashboardComponent } from './features/user-dashboard/user-dashboard
 import { CoreModule } from './core/core.module';
 import { AuthInterceptor } from './core/auth/services/auth.interceptor';
 import { NavbarComponent } from './core/navbar/navbar.component';
+import { AdderComponent } from './features/adder/adder.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NavbarComponent } from './core/navbar/navbar.component';
     LibraryComponent,
     UserDashboardComponent,
     CarouselComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdderComponent
   ],
 
   imports: [

@@ -1,0 +1,14 @@
+<div class="center">
+    <div class="form">
+        <h3 >Add an anime to your watch list</h3>
+        <form [formGroup]="addForm" class="p-1" (ngSubmit)="addAnime()">
+            <div class="text-center">
+                <label for="title">Title</label>
+                </div>
+                <input formControlName="title" id="title" type="text" placeholder="Title" class="form-control">
+            <div class="text-center">
+                <button type="submit" class="btn">Add Anime</button>
+            </div>
+        </form>
+    </div>
+</div>

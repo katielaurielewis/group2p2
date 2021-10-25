@@ -4,3 +4,22 @@ body {
     background-color:#c3ca99;
     color: dimgray;
 }
+
+header {
+    text-align: center;
+    color:dimgrey;
+    padding-top: 2rem;
+    font-size: larger;
+}
+
+h3 {
+    text-align: center;
+    color:dimgrey;
+    padding-top: 2rem;
+}
+
+.btn{
+    margin: 1rem;
+    background-color: #9BA17B;
+    border-radius: .25rem;
+}

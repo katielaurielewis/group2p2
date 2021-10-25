@@ -7,7 +7,7 @@ button{
     display:flex;
     background-color:#9BA17B ;
     border-radius: 12px;
-    padding: 8px;
+    padding: 0px;
 }
 
 .form-control{
