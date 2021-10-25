@@ -1,0 +1,9 @@
+#inputDiv{
+    align-items: center;
+}
+
+input{
+    display: inline-block;
+    justify-self: center;
+    width: 25%;
+}
