@@ -18,12 +18,6 @@ const httpOptions = {
 })
 export class ApiService {
 
-
-  user_id: string = JSON.parse(localStorage.getItem("user")!).id
-  anime_id!: string;
-  anime!: Anime
-  user!: User
-  token = this.authService.getToken() as string
   url: string = "https://api.jikan.moe/v3/anime/"
 
   constructor(private http: HttpClient, private authService: AuthService, handler: HttpBackend) {
@@ -59,20 +53,6 @@ export class ApiService {
         }
       })
     ) 
-  }
-
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      //Client-side or network
-      console.error('An error occurred:', error.error);
-    } else {
-     //Back-end
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-    return throwError(
-      'Something bad happened; please try again later.');
   }
   
 }

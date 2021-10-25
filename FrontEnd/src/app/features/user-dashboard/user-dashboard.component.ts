@@ -12,7 +12,6 @@ export class UserDashboardComponent implements OnInit {
   constructor(private animeService:AnimeService) { }
 
   ngOnInit(): void {
-    this.animeService.addUserAnime("super milk chan")
   }
 
   user: User = JSON.parse(localStorage.getItem('user')!)

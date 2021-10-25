@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Anime } from 'src/app/shared/models/anime';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { AnimeService } from 'src/app/shared/anime.service';
 
 @Component({
   selector: 'app-adder',
@@ -9,16 +10,17 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class AdderComponent implements OnInit {
 
-  public addForm!: FormGroup;
+  addForm = new FormControl;
   anime!: Anime;
   addEndpoint = "http://localhost:8090/anilib/anilib/addAnime"
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private animeService: AnimeService) { }
 
   ngOnInit(): void {
   }
 
   addAnime(){
-    //whoops
+    let animeName = this.addForm.value
+    this.animeService.addUserAnime(animeName)
   }
 
 }
