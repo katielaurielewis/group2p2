@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.models.Anime;
 import com.revature.models.Review;
 import com.revature.models.User;
+import com.revature.models.UserAnime;
 import com.revature.services.AnimeService;
 import com.revature.services.ReviewService;
+import com.revature.services.UserAnimeService;
 import com.revature.services.UserService;
+import com.revature.services.WatchStatusService;
 
 
 @RestController
@@ -30,13 +33,17 @@ public class ReviewController {
 	private ReviewService rService;
 	private AnimeService aService;
 	private UserService uService;
+	private UserAnimeService uAnimeService;
+	private WatchStatusService wsService;
 
 	@Autowired
-	public ReviewController(ReviewService rService, AnimeService aService, UserService uService) {
+	public ReviewController(ReviewService rService, AnimeService aService, UserService uService,  UserAnimeService uAnimeService, WatchStatusService wsService) {
 		super();
 		this.rService = rService;
 		this.aService = aService;
 		this.uService = uService;
+		this.uAnimeService = uAnimeService;
+		this.wsService = wsService;
 	}
 
 
@@ -91,6 +98,27 @@ public class ReviewController {
 		//Receive our anime and user from the path
 		User u = uService.findById(userId);
 		Anime a = aService.findById(animeId).get();
+		
+		//------------------------------------------------------------------------------------------------
+		//Nice Funtionality will be to allow making a review to also change the watch status
+		List<UserAnime> uAnimeList = uAnimeService.findByUser(u).get(); //Gathers list of UserAnime
+		
+		UserAnime uAnime = null;
+		
+		for(UserAnime ua : uAnimeList) {
+			if(ua.getAnime().getId() == animeId) {
+				//This would be the anime we wish to change
+				uAnime = ua;
+				break;
+			}
+		}
+		
+		//Change the watch status of this entity
+		uAnime.setWatchStatus(wsService.getById(2)); //set it to "Watched"
+		
+		//Finally, give this back to the database to update the value
+		uAnimeService.save(uAnime);
+		//------------------------------------------------------------------------------------------------
 		
 		//Place them into the review
 		review.setAnime(a);
