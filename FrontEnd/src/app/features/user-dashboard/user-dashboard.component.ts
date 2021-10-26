@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/auth/models/user';
+import { AnimeService } from 'src/app/shared/anime.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -8,7 +9,7 @@ import { User } from 'src/app/core/auth/models/user';
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private animeService:AnimeService) { }
 
   ngOnInit(): void {
   }

@@ -20,8 +20,8 @@ export class ReviewComponent implements OnInit {
   }
 
   submitReview() {
-    var score = this.reviewForm.controls['genre'].value as number
-    var review = this.reviewForm.controls['rating'].value
+    let score = this.reviewForm.controls['genre'].value as number
+    let review = this.reviewForm.controls['rating'].value
 
     this.addReview(score, review)
     this.reviewForm.reset()
