@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpBackend } from '@angular/common/http';
 
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError} from 'rxjs/operators'
@@ -26,10 +26,12 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     public router: Router,
+    public handler: HttpBackend
   ) { }
 
   register(user: User): Observable<User> {
-    return this.http.post<User>(this.url + "user/register", user, httpOptions)
+    let http = new HttpClient(this.handler)
+    return http.post<any>(this.url + "user/register", user)
       .pipe(
         catchError(this.handleError)
       )

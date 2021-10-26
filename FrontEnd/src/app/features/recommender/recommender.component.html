@@ -2,12 +2,11 @@
   <div class="form">
       <h3>Looking for a recommendation?</h3>
       <form [formGroup]="recommendationForm" class="p-1" (ngSubmit)="recommendAnime()">
-          <div>
-              <label for="genre">Genre</label>
+          <div id="inputDiv" class="text-center">
               <input formControlName="genre" id="genre" type="text" placeholder="Genre" class="form-control">
           </div>
-          <div>
-              <label for="rating">Rating</label>
+          <br>
+          <div id="inputDiv" class="text-center">
               <input formControlName="rating" id="rating" type="text" placeholder="Rating" class="form-control">
           </div>
           <div class="text-center">

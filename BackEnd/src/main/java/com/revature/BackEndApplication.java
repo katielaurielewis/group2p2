@@ -28,7 +28,7 @@ public class BackEndApplication {
 				.cors().and()
 				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/login", "/register").permitAll()
+				.antMatchers(HttpMethod.POST, "/login", "/user/register").permitAll()
 				.anyRequest().authenticated();
 		}
 		//this will make it unauthorized to sent any request except a POST to the URIs /login and /register
