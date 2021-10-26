@@ -89,11 +89,7 @@ class BackEndApplicationTests {
 		a.setId(30001);
 		a.setRating("T");
 		a.setScore(3.14);
-//		List<Studio> slist = new ArrayList<>();
-//		slist.add(s);
 		a.setStudios(s);
-//		List<Genre> glist = new ArrayList<>();
-//		glist.add(g);
 		a.setThemes(g);
 		a.setTitle("TokyoTest!!!");
 		a.setSynopsis("I just want to test this method");
@@ -189,7 +185,7 @@ class BackEndApplicationTests {
 	// Other Add methods: ----------------------------------------------------
 	
 	//Since we are now using Spring JPA to simplify the DAO layer, these two 
-	//tests should honestly suffice for every other add method
+	//tests should suffice for every other add method
 
 	//I've decided to go with adding a Genre, since it is simple and easy
 	@Test
@@ -218,8 +214,6 @@ class BackEndApplicationTests {
 	@Test
 	public void testUpdateStatus() {
 		
-//		gs.save(g);
-//		ss.save(s);
 		uAnime.getUser().setId(u.getId());
 		//add initial useranime
 		uAnime = uas.save(uAnime); //this way we get back the id
@@ -231,7 +225,6 @@ class BackEndApplicationTests {
 		UserAnime uAnime2 = uas.save(uAnime);
 		
 		assertTrue(uAnime2.getWatchStatus().getId() == 2);
-		//assertTrue(false);
 		//Test passes if the new record is equal to our object
 	}
 
