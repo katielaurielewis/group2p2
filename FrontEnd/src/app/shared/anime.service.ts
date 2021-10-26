@@ -33,6 +33,7 @@ export class AnimeService {
   addUserAnime(name: string){
     const request = this.apiService.getAnimeId(name);
     request.subscribe(data => {
+      console.log(data)
       let userAnime = {
         user: this.user,
         anime: data

@@ -6,6 +6,7 @@ import { Observable, throwError, forkJoin } from 'rxjs';
 import { catchError, map, mergeMap, retry, take } from 'rxjs/operators';
 import { Anime } from './models/anime';
 import { User } from '../core/auth/models/user';
+import { Genre } from './models/genre';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -44,17 +45,33 @@ export class ApiService {
           score: res.score,
           synopsis: res.synopsis.substring(0,200).concat("..."),
           image: res.image_url,
-          themes: {
-            id: res.themes[0].mal_id,
-            name: res.themes[0].name
-          },
+          themes: this.checkForTheme(res),
           studios:{
             id: res.studios[0].mal_id,
             name: res.studios[0].name
           }
-        }
+        } 
       })
     ) 
+  }
+
+  // Checks whether the request has a theme or genre object
+  checkForTheme(res: any){
+    let themes = {}
+
+    if (res.themes[0] === undefined){
+      themes = {
+        id: res.genres[0].mal_id,
+        name: res.genres[0].name
+      }
+      return themes as Genre;
+    } else {
+      themes = {
+        id: res.themes[0].mal_id,
+        name: res.themes[0].name
+      }
+      return themes as Genre;
+    }
   }
   
 }
