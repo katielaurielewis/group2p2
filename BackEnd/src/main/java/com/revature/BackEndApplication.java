@@ -33,6 +33,6 @@ public class BackEndApplication {
 		}
 		//this will make it unauthorized to sent any request except a POST to the URIs /login and /register
 		//that is unless we send in a JWT to the response body using that controller
-		//so uh.. be careful when testing
+		//so be careful when testing
 	}
 }
