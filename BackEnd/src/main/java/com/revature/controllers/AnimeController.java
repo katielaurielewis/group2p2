@@ -155,10 +155,7 @@ public class AnimeController {
 		
 		int r = (int) (Math.random()*(aList3.size()));
 		
-//		System.out.println("Size is:" +aList3.size());
-//		System.out.println("Our random number is: " +r);//debug statement
 		//Finally, we take a random Anime that is left over
-		
 		return ResponseEntity.ok(aList3.get(r));
 	}
 

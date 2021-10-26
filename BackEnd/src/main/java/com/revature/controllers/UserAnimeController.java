@@ -102,7 +102,27 @@ public class UserAnimeController {
 			uAnime.setWatchStatus(ws.getById(1)); //sets to not watched, if they do not already claim it as watched
 		}
 		
-		//Currently it wasnt working if the Anime did not exist, this should help it ouw
+		
+		//Validated that the UserAnime does not already exist
+		//This way, we do not end up with duplicates
+		List<UserAnime> uAnimeList = uas.findByUser(uAnime.getUser()).get(); //gets this user's library
+		
+		boolean ex = false; //boolean to check if this entry would be a duplicate
+		if(uAnimeList != null) { //if User currently has a library
+			for(UserAnime ua : uAnimeList) {
+				if(ua.getAnime().getId() == uAnime.getAnime().getId()) {
+					//If the Animes match each other
+					ex = true; //We know then that this entry already exists
+					break;
+				}
+			}
+		}
+		
+		if(ex) { //When the entry exists, make sure to not add it to the database
+			return ResponseEntity.badRequest().build(); //sends a 400 Bad Request response
+		}
+		
+		//If the anime in the User is adding to their library does not exist in the database, add it
 		Optional<Anime> oA = as.findById(uAnime.getAnime().getId());
 		
 		if(!(oA.isPresent())) {
