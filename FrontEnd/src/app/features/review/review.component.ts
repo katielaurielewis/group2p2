@@ -1,9 +1,4 @@
-
-
-import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/core/auth/models/user';
 
@@ -14,6 +9,9 @@ import { User } from 'src/app/core/auth/models/user';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
+
+  @Input()
+  submitReview!: Function;
 
 
   public reviewForm!: FormGroup;
@@ -27,7 +25,14 @@ export class ReviewComponent implements OnInit {
     })
   }
 
-  submitReview() {
+  addReview() {
+    let score = this.reviewForm.controls['score'].value
+    let review = this.reviewForm.controls['review'].value
+    this.submitReview(score, review)
+    this.reviewForm.reset()
+  }
+
+  /*submitReview() {
     let score = this.reviewForm.controls['genre'].value as number
     let review = this.reviewForm.controls['rating'].value
 
@@ -37,7 +42,7 @@ export class ReviewComponent implements OnInit {
 
   addReview(score: number, review: string) {
     
-  }
+  }*/
 
   user = JSON.parse(localStorage.getItem('user')!) as User
 
@@ -45,11 +50,6 @@ export class ReviewComponent implements OnInit {
   anime: any
 
   url = "http://localhost:8090/anilib/user/"
-
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-  }
 
 
 

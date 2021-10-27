@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/core/auth/models/user';
 
 @Component({
   selector: 'app-carousel',
@@ -7,12 +9,33 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
+  reviewEndpoint = 'http://localhost:8090/anilib/review'
+
   @Input()
   anime: any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+
+  }
+
+  submitReview(score: number, review: string) {
+    let active = document.querySelectorAll('[active="true"]')
+    this.http.post<any>(this.reviewEndpoint, this.buildReviewBody(score, review))
+      .subscribe((res: any) => {
+        
+      })
+  }
+
+  buildReviewBody(score: number, review: string) {
+    let active = document.querySelectorAll('[active="true"]')[0]
+    return {
+      "userId": (JSON.parse(localStorage.getItem('user')!) as User).id,
+      "animeId": parseInt(active.getAttribute('anime-id')!),
+      "score": score,
+      "review": review
+    }
   }
 
 }
