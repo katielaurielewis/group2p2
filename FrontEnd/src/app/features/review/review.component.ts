@@ -1,5 +1,6 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/core/auth/models/user';
 
 
@@ -10,13 +11,10 @@ import { User } from 'src/app/core/auth/models/user';
 })
 export class ReviewComponent implements OnInit {
 
-  @Input()
-  submitReview!: Function;
-
-
+  reviewEndpoint = 'http://localhost:8090/anilib/review'
   public reviewForm!: FormGroup;
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.reviewForm = this.formBuilder.group({
@@ -24,40 +22,23 @@ export class ReviewComponent implements OnInit {
       review: ['', Validators.required]
     })
   }
+  
+  submitReview() {
+    this.http.post<any>(this.reviewEndpoint, this.buildReviewBody())
+      .subscribe((res: any) => {
+        this.reviewForm.reset()
+      })
+  }
 
-  addReview() {
-    let score = this.reviewForm.controls['score'].value
+  buildReviewBody() {
+    let score = this.reviewForm.controls['score'].value as number
     let review = this.reviewForm.controls['review'].value
-    this.submitReview(score, review)
-    this.reviewForm.reset()
+    let active = document.querySelectorAll('.carousel-item.active')[0]
+    return {
+      "userId": (JSON.parse(localStorage.getItem('user')!) as User).id,
+      "animeId": parseInt(active.getAttribute('anime-id')!),
+      "score": score,
+      "review": review
+    }
   }
-
-  /*submitReview() {
-    let score = this.reviewForm.controls['genre'].value as number
-    let review = this.reviewForm.controls['rating'].value
-
-    this.addReview(score, review)
-    this.reviewForm.reset()
-  }
-
-  addReview(score: number, review: string) {
-    
-  }*/
-
-  user = JSON.parse(localStorage.getItem('user')!) as User
-
-  @Input()
-  anime: any
-
-  url = "http://localhost:8090/anilib/user/"
-
-
-
-
-
-
-
-
-
-
 }

@@ -34,7 +34,7 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div> -->
     <div class="carousel-inner" *ngIf="anime">
-        <div class="carousel-item" *ngFor="let anime of anime; let first=first" [class.active]="first">
+        <div class="carousel-item" *ngFor="let anime of anime; let first=first" [class.active]="first" [attr.anime-id]="anime.id">
           <img src="{{anime.image}}"/> 
           <!--<div class="container-fluid">-->
             <div class="carousel-caption text-start">

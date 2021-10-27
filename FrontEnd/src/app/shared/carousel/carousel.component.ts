@@ -14,17 +14,14 @@ export class CarouselComponent implements OnInit {
   @Input()
   anime: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   submitReview(score: number, review: string) {
-    let active = document.querySelectorAll('[active="true"]')
     this.http.post<any>(this.reviewEndpoint, this.buildReviewBody(score, review))
       .subscribe((res: any) => {
-        
+        console.log("submitted!")
       })
   }
 
