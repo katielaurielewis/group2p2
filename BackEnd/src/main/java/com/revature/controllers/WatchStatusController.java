@@ -36,18 +36,11 @@ public class WatchStatusController {
 	}
 
 	@GetMapping(value = "/status/{status}")  
-	public ResponseEntity<List<WatchStatus>> findByStatus(@PathVariable String status) {
+	public ResponseEntity<WatchStatus> findByStatus(@PathVariable String status) {
 
-		Optional<List<WatchStatus>> opt = wsService.findByStatus(status);
+		WatchStatus opt = wsService.findByStatus(status);
 
-
-		List<WatchStatus> wsList = null;
-
-		if(opt.isPresent()) { 
-			wsList = opt.get(); 
-		}
-
-		return ResponseEntity.ok(wsList);
+		return ResponseEntity.ok(opt);
 
 	}
 	

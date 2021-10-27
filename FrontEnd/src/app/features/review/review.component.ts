@@ -1,10 +1,7 @@
-
-
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/core/auth/models/user';
 
 
@@ -15,10 +12,10 @@ import { User } from 'src/app/core/auth/models/user';
 })
 export class ReviewComponent implements OnInit {
 
-
+  reviewEndpoint = 'http://localhost:8090/anilib/review'
   public reviewForm!: FormGroup;
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.reviewForm = this.formBuilder.group({
@@ -28,36 +25,32 @@ export class ReviewComponent implements OnInit {
   }
 
   submitReview() {
-    let score = this.reviewForm.controls['genre'].value as number
-    let review = this.reviewForm.controls['rating'].value
-
-    this.addReview(score, review)
-    this.reviewForm.reset()
+    let active = document.querySelectorAll('.carousel-item.active')[0]
+    this.http.post<any>(this.reviewEndpoint, this.buildReviewBody(active))
+      .subscribe((res: any) => {
+        this.reviewForm.reset()
+      })
+    this.http.post<any>(this.buildSetWatchedURI(active), {})
+      .subscribe((res: any) => {
+        console.log("set to watched after submitting review")
+        location.reload();
+      })
   }
 
-  addReview(score: number, review: string) {
-    
+  buildReviewBody(active: Element) {
+    let score = this.reviewForm.controls['score'].value as number
+    let review = this.reviewForm.controls['review'].value
+    return {
+      "userId": (JSON.parse(localStorage.getItem('user')!) as User).id,
+      "animeId": parseInt(active.getAttribute('anime-id')!),
+      "score": score,
+      "review": review
+    }
   }
 
-  user = JSON.parse(localStorage.getItem('user')!) as User
-
-  @Input()
-  anime: any
-
-  url = "http://localhost:8090/anilib/user/"
-
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
+  buildSetWatchedURI(active: Element) {
+    let userId = (JSON.parse(localStorage.getItem('user')!) as User).id
+    let animeId = parseInt(active.getAttribute('anime-id')!)
+    return "http://localhost:8090/anilib/library/" + userId + "/" + animeId + "/setWatched"
   }
-
-
-
-
-
-
-
-
-
-
 }

@@ -5,57 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="carousel.component.css" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+ 
   </head>
   <body>
     
 
   <main>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div> -->
+  <div id="myCarousel" class="carousel slide" data-interval="false" data-bs-ride="carousel">
     <div class="carousel-inner" *ngIf="anime">
-        <div class="carousel-item" *ngFor="let anime of anime; let first=first" [class.active]="first">
+        <div class="carousel-item" *ngFor="let anime of anime; let first=first" [class.active]="first" [attr.anime-id]="anime.id">
           <img src="{{anime.image}}"/> 
           <!--<div class="container-fluid">-->
             <div class="carousel-caption text-start">
               <div class="container">
               <h1>{{anime.title}}</h1>
               <p>{{anime.synopsis}}</p>
+              <br>
+              <div *ngIf="!unwatched && anime.review">
+                <h2>Score: {{anime.review.score}}</h2>
+                <p>{{anime.review.review}}</p>
+              </div>
+              <a (click)="setToWatched()" class="btn" *ngIf="unwatched">Set to Watched</a>
               </div>
             </div>
-          <!--</div>-->
         </div>
-      </div>
+    </div>
    
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
+  <app-review *ngIf="unwatched"></app-review>
   </main>
   <script src="carousel.component.ts"></script>
   <script src="bootstrap.bundle.min.js"></script>

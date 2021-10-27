@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Anime;
 import com.revature.models.Review;
+import com.revature.models.ReviewDTO;
 import com.revature.models.User;
 import com.revature.models.UserAnime;
 import com.revature.services.AnimeService;
@@ -70,7 +72,7 @@ public class ReviewController {
 	}
 
 	@GetMapping(value = "/user/{id}")  
-	public ResponseEntity<List<Review>> findByUser(@PathVariable int id) {
+	public ResponseEntity<List<ReviewDTO>> findByUser(@PathVariable int id) {
 
 		User user = uService.findById(id);
 
@@ -83,12 +85,22 @@ public class ReviewController {
 		if(opt.isPresent()) { 
 			reviewList = opt.get(); 
 		}
+		
+		List<ReviewDTO> response = new ArrayList<ReviewDTO>();
+		reviewList.forEach( it -> {
+			response.add(new ReviewDTO(
+					it.getUser().getId(),
+					it.getAnime().getId(),
+					it.getStarRating(),
+					it.getTextReview()
+				));
+		});
 
-		return ResponseEntity.ok(reviewList);
+		return ResponseEntity.ok(response);
 
 	}
 
-	@PostMapping(value = "/user/{userId}/anime/{animeId}")
+	/*@PostMapping(value = "/user/{userId}/anime/{animeId}")
 	public ResponseEntity addReview(@RequestBody Review review, @PathVariable int userId, @PathVariable int animeId) {
 		
 		if(review == null) {
@@ -125,6 +137,26 @@ public class ReviewController {
 		review.setUser(u);
 		
 		rService.save(review);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).build();
+	}*/
+	
+	@PostMapping
+	public ResponseEntity<Review> addReview(@RequestBody ReviewDTO review) { 
+		if(review == null) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+		
+		User u = uService.findById(review.getUserId());
+		Anime a = aService.findById(review.getAnimeId()).get();
+		
+		Review r = new Review();
+		r.setAnime(a);
+		r.setUser(u);
+		r.setStarRating(review.getScore());
+		r.setTextReview(review.getReview());
+		
+		rService.save(r);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}

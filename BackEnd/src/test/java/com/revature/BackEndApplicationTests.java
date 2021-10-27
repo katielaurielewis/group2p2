@@ -220,7 +220,7 @@ class BackEndApplicationTests {
 		//that will be needed if we want to update it instead of delete it
 		
 		//Change the UserAnime's watch status
-		uAnime.setWatchStatus(wss.getById(2));
+		uAnime.setWatchStatus(wss.findById(2));
 		
 		UserAnime uAnime2 = uas.save(uAnime);
 		

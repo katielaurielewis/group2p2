@@ -1,4 +1,6 @@
+
 import { Genre } from "./genre";
+import { Review } from "./review";
 import { Studio } from "./studio";
 
 export class Anime {
@@ -10,4 +12,5 @@ export class Anime {
     image!: string;
     themes!: Genre;
     studios!: Studio;
+    review?: Review;
 }

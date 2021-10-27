@@ -4,6 +4,9 @@ import { User } from '../core/auth/models/user';
 import { ApiService } from './api.service';
 
 
+
+
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -17,14 +20,19 @@ const httpOptions = {
 })
 export class AnimeService {
 
-  endpoint = "http://localhost:8090/anilib/anilib/recommend/"
+
+
+
+  anime!: Anime
+  recommendpoint = "http://localhost:8090/anilib/anilib/recommend/"
+
   url = "http://localhost:8090/anilib/library"
   user = JSON.parse(localStorage.getItem('user')!) as User
 
   constructor(private http : HttpClient, private apiService: ApiService) { }
 
   recommendAnime(genre: string, rating: string) {
-    return this.http.get<any>(this.endpoint + this.user.id + '/' + genre + '/' + rating).toPromise()
+    return this.http.get<any>(this.recommendpoint + this.user.id + '/' + genre + '/' + rating).toPromise()
   }
 
   addUserAnime(name: string){
