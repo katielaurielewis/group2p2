@@ -20,8 +20,7 @@ const httpOptions = {
 
 export class AuthService {
 
-  loggedIn = new BehaviorSubject<boolean>(this.isTokenAvailable());
-
+  loggedIn = new BehaviorSubject<boolean>(this.tokenAvailable());
   url: string = "http://localhost:8090/anilib/"
   tokenKey: string = 'access_token'
   constructor(
@@ -75,7 +74,7 @@ export class AuthService {
     return throwError(msg);
   }
 
-  isTokenAvailable(): boolean{
+  tokenAvailable(): boolean{
     return !this.getToken();
   }
 }

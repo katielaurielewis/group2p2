@@ -1,3 +1,15 @@
+.btn{
+    background-color: #9BA17B;
+}
+
+h2 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+}
+
 .center{
     display: flex;
     justify-content: center;
@@ -13,7 +25,5 @@
     
 }
 
-.btn{
-    background-color: #9BA17B;
-}
+
 
