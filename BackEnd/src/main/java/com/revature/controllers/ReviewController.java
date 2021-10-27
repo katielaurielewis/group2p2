@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,7 +65,7 @@ public class ReviewController {
 	}
 
 	@GetMapping(value = "/user/{id}")  
-	public ResponseEntity<List<Review>> findByUser(@PathVariable int id) {
+	public ResponseEntity<List<ReviewDTO>> findByUser(@PathVariable int id) {
 
 		User user = uService.findById(id);
 
@@ -77,8 +78,18 @@ public class ReviewController {
 		if(opt.isPresent()) { 
 			reviewList = opt.get(); 
 		}
+		
+		List<ReviewDTO> response = new ArrayList<ReviewDTO>();
+		reviewList.forEach( it -> {
+			response.add(new ReviewDTO(
+					it.getUser().getId(),
+					it.getAnime().getId(),
+					it.getStarRating(),
+					it.getTextReview()
+				));
+		});
 
-		return ResponseEntity.ok(reviewList);
+		return ResponseEntity.ok(response);
 
 	}
 

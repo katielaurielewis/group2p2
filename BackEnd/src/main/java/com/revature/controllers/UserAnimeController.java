@@ -99,7 +99,7 @@ public class UserAnimeController {
 		//This method is to be able to add a new anime to their library
 		
 		if(uAnime.getWatchStatus() == null) {
-			uAnime.setWatchStatus(ws.getById(1)); //sets to not watched, if they do not already claim it as watched
+			uAnime.setWatchStatus(ws.findById(1)); //sets to not watched, if they do not already claim it as watched
 		}
 		
 		//Currently it wasnt working if the Anime did not exist, this should help it ouw
@@ -112,6 +112,15 @@ public class UserAnimeController {
 		uas.save(uAnime);
 		
 		return ResponseEntity.ok().build();
+	}
+	
+	@PostMapping("/{userId}/{animeId}/setWatched")
+	public ResponseEntity setWatched(@PathVariable int userId, @PathVariable int animeId) {
+		UserAnime ua = uas.setWatched(userId, animeId);
+		if(ua == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		return ResponseEntity.ok().body(ua);
 	}
 	
 }

@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/core/auth/models/user';
+import { Anime } from '../models/anime';
 
 @Component({
   selector: 'app-carousel',
@@ -9,30 +10,42 @@ import { User } from 'src/app/core/auth/models/user';
 })
 export class CarouselComponent implements OnInit {
 
-  reviewEndpoint = 'http://localhost:8090/anilib/review'
+  @Input()
+  anime!: Anime[];
 
   @Input()
-  anime: any;
+  unwatched!: boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
 
-  submitReview(score: number, review: string) {
-    this.http.post<any>(this.reviewEndpoint, this.buildReviewBody(score, review))
+  setToWatched() {
+    let active = document.querySelectorAll('.carousel-item.active')[0]
+    let animeId = parseInt(active.getAttribute('anime-id')!)
+    this.http.post<any>(this.buildSetWatchedURI(animeId), {})
       .subscribe((res: any) => {
-        console.log("submitted!")
+        console.log("set to watched")
+        let removeIndex = -1;
+        this.anime.find((it, index) => {
+          if(it.id == parseInt(active.getAttribute('anime-id')!)) {
+            removeIndex = index;
+          }
+        })
+        if(removeIndex != -1) {
+          this.anime.splice(removeIndex, 1);
+          this.changeDetector.detectChanges();
+          if(document.querySelectorAll('.carousel-item.active').length == 0) {
+            // occasionally, removing the anime due to status change results in no active carousel item left
+            // set the first carousel item to active in this case
+            document.querySelectorAll('.carousel-item')[0].classList.add('active')
+          }
+        }
       })
   }
 
-  buildReviewBody(score: number, review: string) {
-    let active = document.querySelectorAll('[active="true"]')[0]
-    return {
-      "userId": (JSON.parse(localStorage.getItem('user')!) as User).id,
-      "animeId": parseInt(active.getAttribute('anime-id')!),
-      "score": score,
-      "review": review
-    }
+  buildSetWatchedURI(animeId: number) {
+    let userId = (JSON.parse(localStorage.getItem('user')!) as User).id
+    return "http://localhost:8090/anilib/library/" + userId + "/" + animeId + "/setWatched"
   }
-
 }

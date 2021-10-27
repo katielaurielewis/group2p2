@@ -6,7 +6,7 @@ public class ReviewDTO {
 	
 	private int userId;
 	private int animeId;
-	private int score;
+	private double score;
 	private String review;
 	
 	//boilerplate code---------------------------------------------
@@ -16,7 +16,7 @@ public class ReviewDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReviewDTO(int userId, int animeId, int score, String review) {
+	public ReviewDTO(int userId, int animeId, double score, String review) {
 		super();
 		this.userId = userId;
 		this.animeId = animeId;
@@ -40,11 +40,11 @@ public class ReviewDTO {
 		this.animeId = animeId;
 	}
 
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 

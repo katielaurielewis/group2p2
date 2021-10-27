@@ -3,8 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../core/auth/models/user';
 import { Anime } from './models/anime';
 import { ApiService } from './api.service';
-import { UserAnime } from '../core/auth/models/user-anime';
-import { mergeMapTo } from 'rxjs/operators'; 
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,14 +18,14 @@ const httpOptions = {
 export class AnimeService {
 
   anime!: Anime
-  endpoint = "http://localhost:8090/anilib/anilib/recommend/"
+  recommendpoint = "http://localhost:8090/anilib/anilib/recommend/"
   url = "http://localhost:8090/anilib/library"
   user = JSON.parse(localStorage.getItem('user')!) as User
 
   constructor(private http : HttpClient, private apiService: ApiService) { }
 
   recommendAnime(genre: string, rating: string) {
-    return this.http.get<any>(this.endpoint + this.user.id + '/' + genre + '/' + rating).toPromise()
+    return this.http.get<any>(this.recommendpoint + this.user.id + '/' + genre + '/' + rating).toPromise()
   }
 
   addUserAnime(name: string){
