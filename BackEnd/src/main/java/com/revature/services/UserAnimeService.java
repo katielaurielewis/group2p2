@@ -33,7 +33,7 @@ public class UserAnimeService {
 	}
 	
 	public UserAnime setWatched(int userId, int animeId) {
-		Optional<UserAnime> opt = uaDAO.findByUserIdAndAnimeId(userId, animeId);
+		Optional<UserAnime> opt = uaDAO.findTopByUserIdAndAnimeId(userId, animeId);
 		if(!opt.isPresent()) {
 			return null;
 		}

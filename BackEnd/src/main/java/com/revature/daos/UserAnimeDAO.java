@@ -17,6 +17,6 @@ public interface UserAnimeDAO extends JpaRepository<UserAnime, Integer> {
 	
 	public Optional<List<UserAnime>> findByWatchStatus(WatchStatus watchStatus);
 	
-	public Optional<UserAnime> findByUserIdAndAnimeId(int userId, int animeId);
+	public Optional<UserAnime> findTopByUserIdAndAnimeId(int userId, int animeId);
 
 }
