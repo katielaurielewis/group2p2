@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { AuthInterceptor } from './core/auth/services/auth.interceptor';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { AdderComponent } from './features/adder/adder.component';
+import { ReviewComponent } from './features/review/review.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AdderComponent } from './features/adder/adder.component';
     CarouselComponent,
     NavbarComponent,
     AdderComponent,
+    ReviewComponent
   ],
 
   imports: [

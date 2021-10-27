@@ -71,7 +71,7 @@ public class WatchStatusController {
 		}
 		
 		//Change the watch status of this entity
-		uAnime.setWatchStatus(wsService.getById(2)); //set it to "Watched"
+		uAnime.setWatchStatus(wsService.findById(2)); //set it to "Watched"
 		
 		//Finally, give this back to the database to update the value
 		uAnimeService.save(uAnime);
