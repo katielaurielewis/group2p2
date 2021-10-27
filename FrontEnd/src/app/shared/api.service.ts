@@ -1,12 +1,11 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpBackend } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserAnime } from '../core/auth/models/user-anime';
 import { AuthService } from '../core/auth/services/auth.service';
-import { Observable, throwError, forkJoin } from 'rxjs';
-import { catchError, map, mergeMap, retry, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, mergeMap} from 'rxjs/operators';
 import { Anime } from './models/anime';
-import { User } from '../core/auth/models/user';
 import { Genre } from './models/genre';
+import { Studio } from './models/studio';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -46,10 +45,7 @@ export class ApiService {
           synopsis: res.synopsis.substring(0,200).concat("..."),
           image: res.image_url,
           themes: this.checkForTheme(res),
-          studios:{
-            id: res.studios[0].mal_id,
-            name: res.studios[0].name
-          }
+          studios: this.checkForStudio(res)
         } 
       })
     ) 
@@ -71,6 +67,20 @@ export class ApiService {
         name: res.themes[0].name
       }
       return themes as Genre;
+    }
+  }
+
+  // Checks if studio studio object is undefined
+  checkForStudio(res: any){
+    let studios = {}
+    if (res.studios[0] === undefined){
+      return null
+    } else{
+      studios = {
+        id: res.studios[0].mal_id,
+        name: res.studios[0].name
+      }
+      return studios as Studio; 
     }
   }
   

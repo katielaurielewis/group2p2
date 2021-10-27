@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../core/auth/models/user';
-import { Anime } from './models/anime';
 import { ApiService } from './api.service';
-import { UserAnime } from '../core/auth/models/user-anime';
-import { mergeMapTo } from 'rxjs/operators'; 
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -19,7 +17,6 @@ const httpOptions = {
 })
 export class AnimeService {
 
-  anime!: Anime
   endpoint = "http://localhost:8090/anilib/anilib/recommend/"
   url = "http://localhost:8090/anilib/library"
   user = JSON.parse(localStorage.getItem('user')!) as User

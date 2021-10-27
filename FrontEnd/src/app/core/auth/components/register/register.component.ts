@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
       .register(this.user)
       .subscribe(res => {
         alert("User registered");
+        console.log(res)
         this.registerForm.reset();
         this.router.navigate(['login']);
       }, err=>{
